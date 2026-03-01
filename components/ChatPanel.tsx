@@ -312,12 +312,13 @@ export default function ChatPanel({
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const autoStickToBottomRef = useRef(true);
   const [voiceMode, setVoiceMode] = useState(false);
+  const voiceModeRef = useRef(false);       // always-current copy for async callbacks
+  const isTTSSpeakingRef = useRef(false);   // true while TTS audio is playing
   const [panelWidth, setPanelWidth] = useState(360);
   const lastSpokenIdRef = useRef<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const recognitionRef = useRef<any>(null);
   const [isListening, setIsListening] = useState(false);
-  const resumeAfterTtsRef = useRef(false);
   const hasMessages = messages.some(m => m.role === "user");
 
   // Greeting — computed client-side; refreshes when the chat clears (new thread) or section changes
@@ -431,6 +432,9 @@ export default function ChatPanel({
     return () => window.removeEventListener("tom:action", handler);
   }, [onInputChange, onOpenView, onOpenCanvas, onPin]);
 
+  // Keep voiceModeRef in sync so async callbacks always see the current value
+  useEffect(() => { voiceModeRef.current = voiceMode; }, [voiceMode]);
+
   // Exit voice mode if user starts typing
   useEffect(() => {
     if (inputText && voiceMode) setVoiceMode(false);
@@ -447,18 +451,15 @@ export default function ChatPanel({
 
   async function speakWithTom(text: string) {
     if (!text.trim()) return;
+    // Always stop listening before speaking so the mic doesn't pick up TTS output
+    isTTSSpeakingRef.current = true;
+    stopListening();
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
     try {
       const voiceText = polishForVoice(text);
-      if (voiceMode && isListening) {
-        resumeAfterTtsRef.current = true;
-        stopListening();
-      } else {
-        resumeAfterTtsRef.current = false;
-      }
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-      }
       const res = await fetch("/api/openai-tts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -472,34 +473,28 @@ export default function ChatPanel({
         audioRef.current = audio;
         audio.onended = () => {
           URL.revokeObjectURL(url);
-          if (voiceMode && resumeAfterTtsRef.current) {
-            resumeAfterTtsRef.current = false;
-            startListening();
-          }
+          isTTSSpeakingRef.current = false;
+          if (voiceModeRef.current) startListening();
         };
-        audio.play().catch(() => {});
+        audio.play().catch(() => { isTTSSpeakingRef.current = false; });
         return;
       }
       const data = await res.json().catch(() => null);
       if (data?.useBrowserVoice) {
-        // Use browser's built-in speech synthesis as fallback
         if (typeof window !== "undefined" && "speechSynthesis" in window) {
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(voiceText);
           utterance.rate = 0.92;
           utterance.pitch = 1.0;
           utterance.volume = 1.0;
-          // Prefer an English voice if available
           const voices = window.speechSynthesis.getVoices();
           const preferred = voices.find(v => v.lang.startsWith("en-GB")) ||
             voices.find(v => v.lang.startsWith("en")) ||
             voices[0];
           if (preferred) utterance.voice = preferred;
           utterance.onend = () => {
-            if (voiceMode && resumeAfterTtsRef.current) {
-              resumeAfterTtsRef.current = false;
-              startListening();
-            }
+            isTTSSpeakingRef.current = false;
+            if (voiceModeRef.current) startListening();
           };
           window.speechSynthesis.speak(utterance);
         }
@@ -508,6 +503,7 @@ export default function ChatPanel({
     } catch {
       // no-op for demo
     }
+    isTTSSpeakingRef.current = false;
   }
 
   function polishForVoice(input: string) {
@@ -568,6 +564,11 @@ export default function ChatPanel({
 
     recognition.onend = () => {
       setIsListening(false);
+      // If we stopped because TTS is about to play, discard partial transcript — do not send
+      if (isTTSSpeakingRef.current) {
+        onInputChange("");
+        return;
+      }
       if (finalTranscript.trim()) {
         onSend(finalTranscript.trim());
         onInputChange("");
@@ -594,13 +595,21 @@ export default function ChatPanel({
   }
 
   function toggleVoice() {
-    setVoiceMode(v => !v);
     if (!voiceMode) {
-      onInputChange(""); // clear text when entering voice mode
+      // Entering voice mode — greeting TTS will start listening via its onended callback
+      setVoiceMode(true);
+      onInputChange("");
       speakWithTom("Good day. How can I help?");
-      startListening();
     } else {
+      // Exiting voice mode — stop everything
+      setVoiceMode(false);
+      isTTSSpeakingRef.current = false;
       stopListening();
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      window.speechSynthesis?.cancel();
     }
   }
 
