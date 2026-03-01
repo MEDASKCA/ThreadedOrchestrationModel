@@ -42,7 +42,7 @@ export const dispatchAlerts = async (
       anomalyId: item.payload.anomalyId,
       channel: item.channel,
       status: item.status,
-      payload: item.payload,
+      payload: item.payload as never,
     })),
   });
 

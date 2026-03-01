@@ -2093,7 +2093,7 @@ export default function OperationsSection({
     }
   }, [deepLink]);
 
-  const VIEW_COMPONENTS: Record<string, JSX.Element> = {
+  const VIEW_COMPONENTS: Record<string, React.ReactElement> = {
     ptl: <PTLTab deepFilters={deepFilters} />,
     waiting: <AccessPathwaysMetricsView endpoint="/api/access-pathways/waiting-list" initialFilters={deepFilters} />,
     rtt: <AccessPathwaysMetricsView endpoint="/api/access-pathways/rtt-monitoring" initialFilters={deepFilters} />,

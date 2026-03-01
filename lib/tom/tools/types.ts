@@ -1,4 +1,4 @@
-export type ToolPermission = "read:ptl" | "read:alerts" | "read:anomalies" | "read:roster" | "read:comms" | "read:pas" | "read:inventory" | "read:view" | "read:public";
+export type ToolPermission = "read:ptl" | "read:alerts" | "read:anomalies" | "read:roster" | "read:comms" | "read:pas" | "read:inventory" | "read:view" | "read:public" | "read:workforce";
 
 export type ToolDefinition<Input = unknown, Output = unknown> = {
   name: string;

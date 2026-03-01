@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   const alerts = evaluateAlerts(pathways, stock);
   const statuses = await connectorRegistry.getAllStatuses();
 
-  let anomalyAlerts = [];
+  let anomalyAlerts: { id: string; severity: string; title: string; detail: string | null; source: string }[] = [];
   if (TOM_FEATURE_FLAGS.anomaliesV1) {
     const anomalies = await prisma.anomaly.findMany({
       where: { status: "open" },
