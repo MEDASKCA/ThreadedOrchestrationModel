@@ -1,0 +1,56 @@
+{
+  "trace_id": "379a682d-85cc-48b1-8add-1bb6a4ab3d45",
+  "created_at": "2026-02-22T22:37:06.080Z",
+  "user_message": "Can you show me any data that you have?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "format:bullets",
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Unsupported domain — safe refusal",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {
+        "format": "bullets"
+      }
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

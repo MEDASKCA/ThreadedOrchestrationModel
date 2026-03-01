@@ -1,0 +1,51 @@
+{
+  "trace_id": "85f5f358-5447-4fd0-9dac-6b4484cf501e",
+  "created_at": "2026-02-25T16:29:24.856Z",
+  "user_message": "so who are 18 week waiters",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "domain:general",
+    "general_answer:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "llm.general_answer"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational general answer",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "prompt": "do we have any pending task?",
+  "expected": {
+    "routing_path": ["pending_override", "view_finder"],
+    "must_have_actions": ["open_view", "open_canvas"]
+  }
+}

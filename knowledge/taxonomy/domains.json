@@ -1,0 +1,13 @@
+[
+  { "id": "access_pathways",    "label": "Access & Pathways",    "module": "operations",    "description": "RTT, PTL, referrals, breach tracking, pathway milestones" },
+  { "id": "capacity",           "label": "Capacity",              "module": "operations",    "description": "Beds, theatres, clinic slots, occupancy, 7-day outlook" },
+  { "id": "activity_performance","label": "Activity & Performance","module": "operations",   "description": "Utilisation, DNA, cancellations, activity vs plan" },
+  { "id": "procedures",         "label": "Procedures",            "module": "operations",    "description": "Theatre lists, pre-op, OPCS, procedure durations, backlog" },
+  { "id": "flow_escalation",    "label": "Flow & Escalation",     "module": "operations",    "description": "Delayed discharge, OPEL, bottlenecks, pressure indicators" },
+  { "id": "workforce",          "label": "Workforce",             "module": "logistics",     "description": "Rotas, shifts, absence, coverage gaps, staff allocation" },
+  { "id": "inventory_equipment","label": "Inventory & Equipment", "module": "logistics",     "description": "Stock, assets, batch/expiry, procurement, supply chain" },
+  { "id": "collaboration",      "label": "Collaboration",         "module": "collaboration", "description": "Deliverables, tasks, escalations, huddles, governance logs" },
+  { "id": "governance",         "label": "Governance",            "module": "intelligence",  "description": "Audit trail, compliance, policy, TOM audit log" },
+  { "id": "intelligence",       "label": "Intelligence",          "module": "intelligence",  "description": "Analytics, insight, reports, trends, forecasting" },
+  { "id": "general",            "label": "General",               "module": "operations",    "description": "Cross-domain or unclassified operational queries" }
+]

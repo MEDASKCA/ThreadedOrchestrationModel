@@ -1,0 +1,7 @@
+{
+  "clinical":             ["patient", "nhs number", "pathway", "referral", "specialty", "consultant", "diagnosis", "procedure", "cancer", "2ww"],
+  "time":                 ["today", "this week", "this month", "next week", "7-day", "14-day", "year to date", "ytd", "quarter", "year end", "overnight", "this morning"],
+  "performance_metrics":  ["rtt", "ptl", "dna", "utilisation", "occupancy", "opel", "2ww", "cancer pathway", "breach", "achievement", "variance"],
+  "resource_types":       ["bed", "theatre", "clinic slot", "session", "ward", "icu", "staff", "rota", "shift", "equipment", "stock", "asset"],
+  "actions":              ["show", "get", "find", "check", "review", "validate", "compare", "export", "escalate", "assign", "flag", "open"]
+}

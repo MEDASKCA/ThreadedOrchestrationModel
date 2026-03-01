@@ -1,0 +1,41 @@
+{
+  "trace_id": "8e0fee3b-8b70-4d4b-8dea-011c75a0284d",
+  "created_at": "2026-02-22T23:24:11.865Z",
+  "user_message": "show me a snapshot?",
+  "intent": "emotion_or_short_utterance",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "emotion_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Short or emotional utterance",
+    "routing_path": "emotion_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge tone and move user toward a productive next step",
+  "outcome": {
+    "status": "ok",
+    "notes": "emotion_misc_handled"
+  }
+}

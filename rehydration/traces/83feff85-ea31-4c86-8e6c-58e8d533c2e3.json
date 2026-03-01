@@ -1,0 +1,44 @@
+{
+  "trace_id": "83feff85-ea31-4c86-8e6c-58e8d533c2e3",
+  "created_at": "2026-02-25T14:00:15.885Z",
+  "user_message": "hello",
+  "intent": "greeting",
+  "intent_confidence": 0.96,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "greeting_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Greeting micro-intent",
+    "routing_path": "greeting"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge greeting and continue conversation",
+  "outcome": {
+    "status": "ok",
+    "notes": "greeting_handled"
+  }
+}

@@ -1,0 +1,103 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model MetricPoint {
+  id          String   @id @default(cuid())
+  metricName  String
+  scope       String
+  scopeId     String?
+  value       Float
+  volume      Int
+  windowDays  Int
+  recordedAt  DateTime @default(now())
+  source      String
+}
+
+model Baseline {
+  id                 String   @id @default(cuid())
+  metricName         String
+  scope              String
+  scopeId            String?
+  baselineValue      Float
+  standardDeviation  Float
+  dataVolume         Int
+  baselineWindowDays Int
+  computedAt         DateTime @default(now())
+}
+
+model Anomaly {
+  id                     String   @id @default(cuid())
+  metricName             String
+  scope                  String
+  scopeId                String?
+  detectionDate          DateTime @default(now())
+  resolutionDate         DateTime?
+  baselineWindowDays     Int
+  currentWindowDays      Int
+  baselineValue          Float
+  currentValue           Float
+  percentageChange       Float
+  standardDeviationDelta Float
+  volumeContext          Int
+  severity               String
+  confidence             String
+  projectedImpact        String
+  explanation            String
+  status                 String   @default("open")
+  transparencyPayload    Json
+  history                Json?
+  interventionTaken      String?
+  postInterventionOutcome String?
+  severityHistory        Json?
+  histories              AnomalyHistory[]
+}
+
+model AnomalyHistory {
+  id        String   @id @default(cuid())
+  anomalyId String
+  eventType String
+  payload   Json
+  createdAt DateTime @default(now())
+
+  anomaly Anomaly @relation(fields: [anomalyId], references: [id])
+}
+
+model AlertDispatch {
+  id         String   @id @default(cuid())
+  anomalyId  String?
+  channel    String
+  status     String
+  payload    Json
+  createdAt  DateTime @default(now())
+}
+
+model AuditLog {
+  id              String   @id @default(cuid())
+  timestamp       DateTime @default(now())
+  userId          String?
+  actionType      String
+  toolsCalled     Json
+  recordsAccessed Json?
+  outcome         String?
+  correlationId   String?
+}
+
+model ActionRequest {
+  id              String   @id @default(cuid())
+  actionType      String
+  label           String
+  rationale       String
+  payload         Json?
+  status          String   @default("pending")
+  permissionScope String?
+  userId          String?
+  createdAt       DateTime @default(now())
+  confirmedAt     DateTime?
+  executedAt      DateTime?
+}

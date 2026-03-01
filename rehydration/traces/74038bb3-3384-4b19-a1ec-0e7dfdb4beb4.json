@@ -1,0 +1,44 @@
+{
+  "trace_id": "74038bb3-3384-4b19-a1ec-0e7dfdb4beb4",
+  "created_at": "2026-02-23T01:38:44.993Z",
+  "user_message": "let's try this again",
+  "intent": "repetition_complaint",
+  "intent_confidence": 0.94,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "repetition_complaint_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Repetition complaint micro-intent",
+    "routing_path": "repetition_complaint"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge repetition complaint and offer targeted options",
+  "outcome": {
+    "status": "ok",
+    "notes": "repetition_complaint_handled"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "trace_id": "f9812bf5-62ec-4855-8360-6833a3c789a5",
+  "created_at": "2026-02-26T02:22:21.885Z",
+  "user_message": "tell me about Marcus Osei",
+  "intent": "locate",
+  "intent_confidence": 0.6,
+  "constraints": [
+    "domain:general",
+    "explain_mode:concise",
+    "explain_trigger:false",
+    "authority_primary:unknown",
+    "tools_allowed:workforce.person_lookup,view.read",
+    "tools_selected:workforce.person_lookup,view.read",
+    "tool_risk:workforce.person_lookup:low|view.read:low",
+    "domains_selected:none",
+    "allowed_fact_count:14",
+    "ptl_rows:7",
+    "table_snapshot:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:true",
+    "knowledge_trigger:person_lookup",
+    "knowledge_intent:locate",
+    "knowledge_domain:workforce",
+    "knowledge_confidence:0.53",
+    "knowledge_pack:1.0.0",
+    "knowledge_signals:tell me about"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "workforce.person_lookup"
+      },
+      {
+        "id": "2",
+        "kind": "tool",
+        "name": "view.read"
+      },
+      {
+        "id": "3",
+        "kind": "respond",
+        "name": "final_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "default",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "tool:workforce.person_lookup",
+      "tool:view.read",
+      "evidence:Staff Finder:0",
+      "evidence:Roster / HealthRoster:1",
+      "evidence:Collaboration threads:2",
+      "evidence:Audit log:3",
+      "evidence:view.read:operations.ptl:4",
+      "record:view.read:operations.ptl:0",
+      "record:view.read:operations.ptl:1",
+      "record:view.read:operations.ptl:2",
+      "record:view.read:operations.ptl:3",
+      "record:view.read:operations.ptl:4",
+      "record:view.read:operations.ptl:5",
+      "record:view.read:operations.ptl:6"
+    ]
+  },
+  "conflicts": [
+    {
+      "kind": "unknown_tool",
+      "severity": "low",
+      "details": "one or more selected tools have unknown authority",
+      "tools": [
+        "workforce.person_lookup",
+        "view.read"
+      ]
+    }
+  ],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:12"
+  }
+}

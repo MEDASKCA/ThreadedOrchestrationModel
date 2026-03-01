@@ -1,0 +1,41 @@
+{
+  "trace_id": "ade9de8b-7566-420f-837e-5b42a24035a4",
+  "created_at": "2026-02-22T22:59:23.829Z",
+  "user_message": "are you there?",
+  "intent": "emotion_or_short_utterance",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "emotion_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Short or emotional utterance",
+    "routing_path": "emotion_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge tone and move user toward a productive next step",
+  "outcome": {
+    "status": "ok",
+    "notes": "emotion_misc_handled"
+  }
+}

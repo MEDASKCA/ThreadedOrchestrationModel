@@ -1,0 +1,54 @@
+[
+  {
+    "id": "overdue_deliverables",
+    "module": "collaboration",
+    "priority": 88,
+    "intent": "co_ordinate",
+    "domain": "collaboration",
+    "response_key": "overdue_deliverables",
+    "match": {
+      "must_any": ["overdue", "overdue task", "overdue deliverable", "missed deadline", "late task", "past due"],
+      "should_any": ["team", "assigned", "owner", "escalate", "urgent", "deadline"],
+      "must_not": ["stock", "bed", "ptl", "rtt"]
+    }
+  },
+  {
+    "id": "at_risk_items",
+    "module": "collaboration",
+    "priority": 85,
+    "intent": "risk_escalation",
+    "domain": "collaboration",
+    "response_key": "at_risk_items",
+    "match": {
+      "must_any": ["at risk", "at-risk deliverable", "at risk task", "risk delivery", "risk of missing"],
+      "should_any": ["deadline", "team", "dependency", "blocker"],
+      "must_not": ["stock", "bed", "ptl"]
+    }
+  },
+  {
+    "id": "huddle_briefing",
+    "module": "collaboration",
+    "priority": 80,
+    "intent": "co_ordinate",
+    "domain": "collaboration",
+    "response_key": "huddle_briefing",
+    "match": {
+      "must_any": ["huddle", "briefing", "morning briefing", "team briefing", "handover briefing", "daily briefing"],
+      "should_any": ["prepare", "agenda", "summary", "priorities", "today"],
+      "must_not": ["stock", "equipment"]
+    }
+  },
+  {
+    "id": "governance_log",
+    "module": "collaboration",
+    "priority": 75,
+    "intent": "validate",
+    "domain": "governance",
+    "response_key": "governance_log",
+    "match": {
+      "must_any": ["governance log", "governance record", "audit log", "tom audit", "audit trail"],
+      "should_any": ["review", "check", "latest", "view", "entries"],
+      "must_not": ["stock", "rota", "bed"]
+    }
+  }
+]

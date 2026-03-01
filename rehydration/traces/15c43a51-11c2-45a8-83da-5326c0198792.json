@@ -1,0 +1,53 @@
+{
+  "trace_id": "15c43a51-11c2-45a8-83da-5326c0198792",
+  "created_at": "2026-02-22T23:17:51.940Z",
+  "user_message": "show me the snapshot of operations",
+  "intent": "section_overview",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "default",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

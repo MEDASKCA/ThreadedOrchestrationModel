@@ -1,0 +1,51 @@
+{
+  "trace_id": "7115471b-3954-46a0-9f36-0e2f45b8464a",
+  "created_at": "2026-02-22T21:48:21.391Z",
+  "user_message": "do we have any pending task?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Unsupported domain — safe refusal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

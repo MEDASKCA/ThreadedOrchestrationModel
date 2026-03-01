@@ -1,0 +1,41 @@
+{
+  "trace_id": "9d81cf06-8a68-4fce-ab1f-fc92b9f3b886",
+  "created_at": "2026-02-22T22:36:08.341Z",
+  "user_message": "tell me about Operations",
+  "intent": "section_overview",
+  "intent_confidence": 0.92,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "section_overview_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Hard section overview guard",
+    "routing_path": "section_overview"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Summarise available operations pages from view registry",
+  "outcome": {
+    "status": "ok",
+    "notes": "section_overview_handled"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "prompt": "show PTL tracker",
+  "expected": {
+    "routing_path": ["normal", "page_context", "view_finder"],
+    "must_have_actions": ["open_view"]
+  }
+}

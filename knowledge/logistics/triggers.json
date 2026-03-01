@@ -1,0 +1,119 @@
+[
+  {
+    "id": "workforce_coverage",
+    "module": "logistics",
+    "priority": 90,
+    "intent": "risk_escalation",
+    "domain": "workforce",
+    "response_key": "workforce_coverage",
+    "match": {
+      "must_any": ["coverage gap", "staffing gap", "rota gap", "shift gap", "understaffed", "staff coverage", "who is on shift", "who's on shift", "who is working"],
+      "should_any": ["today", "tonight", "tomorrow", "this week", "rota", "shift", "ward", "cover"],
+      "must_not": ["stock", "equipment", "inventory", "bed capacity"]
+    }
+  },
+  {
+    "id": "absence_review",
+    "module": "logistics",
+    "priority": 85,
+    "intent": "risk_escalation",
+    "domain": "workforce",
+    "response_key": "absence_review",
+    "match": {
+      "must_any": ["absence", "sick", "off sick", "sickness", "leave impact", "staff off", "annual leave", "sickness absence"],
+      "should_any": ["today", "this week", "impact", "cover", "replacement", "rate"],
+      "must_not": ["stock", "equipment", "inventory"]
+    }
+  },
+  {
+    "id": "staff_allocation",
+    "module": "logistics",
+    "priority": 80,
+    "intent": "co_ordinate",
+    "domain": "workforce",
+    "response_key": "staff_allocation",
+    "match": {
+      "must_any": ["staff allocation", "assign staff", "deploy staff", "allocate staff", "staff deployment", "redeployment", "redeploy"],
+      "should_any": ["ward", "theatre", "shift", "specialist", "role", "competency"],
+      "must_not": ["stock", "equipment", "inventory"]
+    }
+  },
+  {
+    "id": "rota_tomorrow",
+    "module": "logistics",
+    "priority": 75,
+    "intent": "locate",
+    "domain": "workforce",
+    "response_key": "rota_tomorrow",
+    "match": {
+      "must_any": ["tomorrow's rota", "tomorrow rota", "rota tomorrow", "next shift", "shift tomorrow", "staffing tomorrow"],
+      "should_any": ["confirm", "check", "review", "coverage", "who"],
+      "must_not": ["stock", "equipment"]
+    }
+  },
+  {
+    "id": "stock_safety",
+    "module": "logistics",
+    "priority": 90,
+    "intent": "risk_escalation",
+    "domain": "inventory_equipment",
+    "response_key": "stock_safety",
+    "match": {
+      "must_any": ["stock level", "low stock", "stock threshold", "safety stock", "stock check", "inventory level", "running low", "stock safety"],
+      "should_any": ["ward", "theatre", "pharmacy", "critical", "urgent", "risk"],
+      "must_not": ["staff", "rota", "shift"]
+    }
+  },
+  {
+    "id": "batch_expiry",
+    "module": "logistics",
+    "priority": 85,
+    "intent": "validate",
+    "domain": "inventory_equipment",
+    "response_key": "batch_expiry",
+    "match": {
+      "must_any": ["expiry", "expiring", "batch expiry", "expired", "use by", "out of date", "batch check"],
+      "should_any": ["drug", "medication", "equipment", "batch", "stock", "soon"],
+      "must_not": ["staff", "rota"]
+    }
+  },
+  {
+    "id": "procurement_pipeline",
+    "module": "logistics",
+    "priority": 75,
+    "intent": "forecast",
+    "domain": "inventory_equipment",
+    "response_key": "procurement_pipeline",
+    "match": {
+      "must_any": ["procurement", "purchase order", "supply chain", "pending order", "awaiting delivery", "order status", "order pipeline"],
+      "should_any": ["status", "delivery", "expected", "supplier", "eta"],
+      "must_not": ["staff", "rota"]
+    }
+  },
+  {
+    "id": "asset_tracking",
+    "module": "logistics",
+    "priority": 72,
+    "intent": "locate",
+    "domain": "inventory_equipment",
+    "response_key": "asset_tracking",
+    "match": {
+      "must_any": ["asset location", "where is the", "equipment location", "track asset", "asset tracking", "locate equipment"],
+      "should_any": ["ward", "theatre", "department", "missing", "found"],
+      "must_not": ["staff", "rota"]
+    }
+  },
+  {
+    "id": "person_lookup",
+    "module": "logistics",
+    "priority": 65,
+    "intent": "locate",
+    "domain": "workforce",
+    "response_key": "person_lookup",
+    "match": {
+      "must_any": ["tell me about", "who is", "find", "look up", "search for", "what do you know about"],
+      "should_any": ["staff", "employee", "roster", "nurse", "doctor", "contact", "allocation", "deliverable", "thread", "band"],
+      "must_not": ["rtt", "breach", "waiting list", "stock level", "ptl"]
+    }
+  }
+]

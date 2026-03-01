@@ -1,0 +1,46 @@
+{
+  "trace_id": "ac6ded99-1a8c-40b1-8ff4-40defc6ee082",
+  "created_at": "2026-02-23T01:56:34.611Z",
+  "user_message": "yo",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "llm_planner_used:false",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational guidance without tools",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

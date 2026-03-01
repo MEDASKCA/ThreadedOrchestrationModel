@@ -1,0 +1,52 @@
+{
+  "trace_id": "5a0de7da-acb3-4816-9c0b-b5c17cfca4b4",
+  "created_at": "2026-03-01T01:15:26.336Z",
+  "user_message": "What can you see in my page TOM",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "domain:general",
+    "general_answer:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "llm.general_answer"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational general answer",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

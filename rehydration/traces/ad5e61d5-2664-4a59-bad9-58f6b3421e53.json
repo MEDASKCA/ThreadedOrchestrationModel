@@ -1,0 +1,41 @@
+{
+  "trace_id": "ad5e61d5-2664-4a59-bad9-58f6b3421e53",
+  "created_at": "2026-02-22T22:54:39.417Z",
+  "user_message": "any update?",
+  "intent": "emotion_or_short_utterance",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "emotion_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Short or emotional utterance",
+    "routing_path": "emotion_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge tone and move user toward a productive next step",
+  "outcome": {
+    "status": "ok",
+    "notes": "emotion_misc_handled"
+  }
+}

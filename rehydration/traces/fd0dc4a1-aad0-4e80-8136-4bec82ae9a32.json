@@ -1,0 +1,46 @@
+{
+  "trace_id": "fd0dc4a1-aad0-4e80-8136-4bec82ae9a32",
+  "created_at": "2026-02-23T01:34:35.865Z",
+  "user_message": "are you there?",
+  "intent": "presence_ping",
+  "intent_confidence": 0.95,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "llm_planner_used:false",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "presence_ping_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Presence ping",
+    "routing_path": "presence_ping"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Confirm presence and offer deterministic next steps",
+  "outcome": {
+    "status": "ok",
+    "notes": "presence_ping_handled"
+  }
+}

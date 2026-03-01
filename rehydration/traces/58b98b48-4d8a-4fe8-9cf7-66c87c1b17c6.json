@@ -1,0 +1,55 @@
+{
+  "trace_id": "58b98b48-4d8a-4fe8-9cf7-66c87c1b17c6",
+  "created_at": "2026-02-22T22:46:21.134Z",
+  "user_message": "how can you help me?>",
+  "intent": "smalltalk",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "No external data access",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "smalltalk_template"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Smalltalk requires no tools",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "goal": "Handle conversational interaction",
+  "outcome": {
+    "status": "fallback",
+    "notes": "claims_without_evidence,used_fact_ids:0"
+  }
+}

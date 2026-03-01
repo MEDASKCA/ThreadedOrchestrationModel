@@ -1,0 +1,52 @@
+{
+  "trace_id": "792ede43-d77b-4ad0-8537-0d85d9191669",
+  "created_at": "2026-03-01T01:15:38.247Z",
+  "user_message": "Applications Template Builder",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "domain:general",
+    "general_answer:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "llm.general_answer"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational general answer",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

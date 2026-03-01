@@ -1,0 +1,43 @@
+{
+  "trace_id": "51246aea-89a9-4900-815c-27fefd0333ea",
+  "created_at": "2026-02-23T00:28:46.310Z",
+  "user_message": "are you there?",
+  "intent": "presence_ping",
+  "intent_confidence": 0.95,
+  "constraints": [
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "presence_ping_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Presence ping",
+    "routing_path": "presence_ping"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Confirm presence and offer deterministic next steps",
+  "outcome": {
+    "status": "ok",
+    "notes": "presence_ping_handled"
+  }
+}

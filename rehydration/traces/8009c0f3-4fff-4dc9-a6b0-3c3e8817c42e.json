@@ -1,0 +1,44 @@
+{
+  "trace_id": "8009c0f3-4fff-4dc9-a6b0-3c3e8817c42e",
+  "created_at": "2026-02-23T12:20:20.803Z",
+  "user_message": "hey TOM, what can you tell me about the waiting list?",
+  "intent": "greeting",
+  "intent_confidence": 0.96,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "greeting_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Greeting micro-intent",
+    "routing_path": "greeting"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge greeting and continue conversation",
+  "outcome": {
+    "status": "ok",
+    "notes": "greeting_handled"
+  }
+}

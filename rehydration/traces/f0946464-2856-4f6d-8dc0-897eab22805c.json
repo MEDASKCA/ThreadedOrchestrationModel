@@ -1,0 +1,41 @@
+{
+  "trace_id": "f0946464-2856-4f6d-8dc0-897eab22805c",
+  "created_at": "2026-02-22T23:45:08.693Z",
+  "user_message": "what is the sunrise time tomorrow?",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational guidance without tools",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

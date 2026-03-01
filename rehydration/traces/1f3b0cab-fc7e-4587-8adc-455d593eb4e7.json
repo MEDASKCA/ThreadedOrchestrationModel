@@ -1,0 +1,51 @@
+{
+  "trace_id": "1f3b0cab-fc7e-4587-8adc-455d593eb4e7",
+  "created_at": "2026-02-25T01:05:40.911Z",
+  "user_message": "open the fucking canvas!",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "domain:general",
+    "general_answer:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "llm.general_answer"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational general answer",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

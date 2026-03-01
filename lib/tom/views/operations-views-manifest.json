@@ -1,0 +1,77 @@
+{
+  "section": "operations",
+  "generated": "2026-02-26",
+  "total_views": 45,
+  "groups": [
+    {
+      "group": "Access & Pathways",
+      "views": [
+        { "id": "operations.ptl",                           "label": "PTL",                            "url_key": "ptl",             "implemented": true },
+        { "id": "operations.access_pathways_waiting_list",  "label": "Waiting List Management",        "url_key": "waiting",         "implemented": true },
+        { "id": "operations.access_pathways_rtt_monitoring","label": "RTT Monitoring",                  "url_key": "rtt",             "implemented": true },
+        { "id": "operations.cancer_2ww",                    "label": "Cancer Pathways (2WW)",           "url_key": "cancer",          "implemented": true },
+        { "id": "operations.referral_management",           "label": "Referral Management",             "url_key": "referrals",       "implemented": true },
+        { "id": "operations.triage_status",                 "label": "Triage Status",                   "url_key": "triage",          "implemented": true },
+        { "id": "operations.breach_tracking",               "label": "Breach Tracking",                 "url_key": "breach",          "implemented": true },
+        { "id": "operations.pathway_milestones",            "label": "Pathway Milestones",              "url_key": "milestones",      "implemented": true },
+        { "id": "operations.clock_starts_stops",            "label": "Clock Starts / Stops",            "url_key": "clock",           "implemented": true },
+        { "id": "operations.validation_data_quality",       "label": "Validation & Data Quality",       "url_key": "validation",      "implemented": true }
+      ]
+    },
+    {
+      "group": "Capacity",
+      "views": [
+        { "id": "operations.beds",            "label": "Bed Management",           "url_key": "beds",            "implemented": true },
+        { "id": "operations.wardCapacity",    "label": "Ward Capacity",            "url_key": "wardCapacity",    "implemented": true },
+        { "id": "operations.icuCapacity",     "label": "ICU Capacity",             "url_key": "icuCapacity",     "implemented": true },
+        { "id": "operations.theatreCapacity", "label": "Theatre Capacity",         "url_key": "theatreCapacity", "implemented": true },
+        { "id": "operations.clinicSlots",     "label": "Clinic Slot Availability", "url_key": "clinicSlots",     "implemented": true },
+        { "id": "operations.sessionPlanner",  "label": "Session Planner",          "url_key": "sessionPlanner",  "implemented": true },
+        { "id": "operations.templateUtil",    "label": "Template Utilisation",     "url_key": "templateUtil",    "implemented": true },
+        { "id": "operations.surge",           "label": "Surge Planning",           "url_key": "surge",           "implemented": true },
+        { "id": "operations.forwardCapacity", "label": "7-Day Forward Capacity",   "url_key": "forwardCapacity", "implemented": true }
+      ]
+    },
+    {
+      "group": "Activity & Performance",
+      "views": [
+        { "id": "operations.dailyVsPlan",   "label": "Daily Activity vs Plan",  "url_key": "dailyVsPlan",   "implemented": true },
+        { "id": "operations.theatreUtil",   "label": "Theatre Utilisation",     "url_key": "theatreUtil",   "implemented": true },
+        { "id": "operations.clinicUtil",    "label": "Clinic Utilisation",      "url_key": "clinicUtil",    "implemented": true },
+        { "id": "operations.dna",           "label": "DNA Rates",               "url_key": "dna",           "implemented": true },
+        { "id": "operations.cancellations", "label": "Cancellation Rates",      "url_key": "cancellations", "implemented": true },
+        { "id": "operations.breachPerf",    "label": "Breach Performance",      "url_key": "breachPerf",    "implemented": true },
+        { "id": "operations.targets",       "label": "Performance vs Targets",  "url_key": "targets",       "implemented": true },
+        { "id": "operations.variance",      "label": "Variance Analysis",       "url_key": "variance",      "implemented": true },
+        { "id": "operations.specialtyPerf", "label": "Specialty Performance",   "url_key": "specialtyPerf", "implemented": true },
+        { "id": "operations.solari",        "label": "Solari Board",            "url_key": "solari",        "implemented": true }
+      ]
+    },
+    {
+      "group": "Procedures",
+      "views": [
+        { "id": "operations.opcs",           "label": "OPCS Tracking",              "url_key": "opcs",           "implemented": true },
+        { "id": "operations.procedureReqs",  "label": "Procedure Requirements",     "url_key": "procedureReqs",  "implemented": true },
+        { "id": "operations.preop",          "label": "Pre-Op Checklist Status",    "url_key": "preop",          "implemented": true },
+        { "id": "operations.coding",         "label": "Procedure Coding",           "url_key": "coding",         "implemented": true },
+        { "id": "operations.durationTrends", "label": "Procedure Duration Trends",  "url_key": "durationTrends", "implemented": true },
+        { "id": "operations.theatreList",    "label": "Theatre List Composition",   "url_key": "theatreList",    "implemented": true },
+        { "id": "operations.backlog",        "label": "Backlog by Procedure Type",  "url_key": "backlog",        "implemented": true }
+      ]
+    },
+    {
+      "group": "Flow & Escalation",
+      "views": [
+        { "id": "operations.delayedDischarge", "label": "Delayed Discharges",             "url_key": "delayedDischarge", "implemented": true },
+        { "id": "operations.transfers",        "label": "Internal Transfers",             "url_key": "transfers",        "implemented": true },
+        { "id": "operations.blockedBeds",      "label": "Blocked Beds",                   "url_key": "blockedBeds",      "implemented": true },
+        { "id": "operations.capacityAlerts",   "label": "Capacity Alerts",                "url_key": "capacityAlerts",   "implemented": true },
+        { "id": "operations.opel",             "label": "Escalation Level (OPEL)",        "url_key": "opel",             "implemented": true },
+        { "id": "operations.incidentFlags",    "label": "Incident Flags",                 "url_key": "incidentFlags",    "implemented": true },
+        { "id": "operations.emergency",        "label": "Emergency Pressure Indicators",  "url_key": "emergency",        "implemented": true },
+        { "id": "operations.sameDayCancel",    "label": "Same-Day Cancellations",         "url_key": "sameDayCancel",    "implemented": true },
+        { "id": "operations.riskFeed",         "label": "Real-Time Risk Feed",            "url_key": "riskFeed",         "implemented": true }
+      ]
+    }
+  ]
+}

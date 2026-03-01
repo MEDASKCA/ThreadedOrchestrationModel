@@ -1,0 +1,45 @@
+{
+  "trace_id": "d9b2cf3d-1d2c-4445-b5b5-02d98b255f7a",
+  "created_at": "2026-02-23T01:11:52.607Z",
+  "user_message": "let's talk about operations",
+  "intent": "section_overview",
+  "intent_confidence": 0.92,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "section_overview_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Hard section overview guard",
+    "routing_path": "section_overview"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Summarise available operations pages from view registry",
+  "outcome": {
+    "status": "ok",
+    "notes": "section_overview_handled"
+  }
+}

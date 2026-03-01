@@ -1,0 +1,32 @@
+{
+  "permissions_check": {
+    "tone": "informational",
+    "processing_states": ["Validating permissions and integrations…", "Checking access levels…", "Loading role configuration…"],
+    "response_template": {
+      "title": "Permissions overview",
+      "sections": [
+        { "type": "summary",  "text": "Current user and role permissions across TOM modules." },
+        { "type": "table",    "source": "configurator.permissions", "columns": ["User", "Role", "Ingress level", "Modules accessible", "Last login", "Status"] },
+        { "type": "actions",  "items": ["Edit permissions", "Add user", "Review role definitions", "Export access report"] }
+      ]
+    },
+    "data_sources": ["configurator"],
+    "guardrails": ["admin_only"]
+  },
+
+  "integration_status": {
+    "tone": "informational",
+    "processing_states": ["Validating permissions and integrations…", "Checking connector health…", "Scanning API status…"],
+    "response_template": {
+      "title": "Integration status",
+      "sections": [
+        { "type": "summary",  "text": "Health and connection status of all configured system integrations." },
+        { "type": "table",    "source": "configurator.integrations", "columns": ["System", "Type", "Status", "Last sync", "Records synced", "Issues"] },
+        { "type": "insight",  "text": "{connected_count} of {total_count} integrations are active. {error_count} have issues requiring attention." },
+        { "type": "actions",  "items": ["Reconnect failed integration", "View error log", "Test connection", "Configure new integration"] }
+      ]
+    },
+    "data_sources": ["configurator"],
+    "guardrails": ["admin_only"]
+  }
+}

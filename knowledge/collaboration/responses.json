@@ -1,0 +1,65 @@
+{
+  "overdue_deliverables": {
+    "tone": "focused",
+    "processing_states": ["Scanning overdue dependencies…", "Checking task ownership…", "Consolidating cross-system signals…"],
+    "response_template": {
+      "title": "Overdue deliverables",
+      "sections": [
+        { "type": "summary",  "text": "Tasks and deliverables that have passed their deadline and require action." },
+        { "type": "table",    "source": "collaboration.overdue", "columns": ["Task", "Owner", "Team", "Due date", "Days overdue", "Priority", "Status"] },
+        { "type": "insight",  "text": "{overdue_count} items are overdue. {critical_count} are flagged as high priority." },
+        { "type": "actions",  "items": ["Chase owners", "Escalate critical items", "Reassign if needed", "Update governance log"] }
+      ]
+    },
+    "data_sources": ["collaboration"],
+    "guardrails": ["no_clinical_advice"],
+    "follow_up_prompts": ["Show me items by owner", "What is blocking the top items?", "Which team has the most overdue tasks?"]
+  },
+
+  "at_risk_items": {
+    "tone": "focused",
+    "processing_states": ["Reviewing at-risk deliverables…", "Checking dependency blocks…", "Flagging timeline risk…"],
+    "response_template": {
+      "title": "At-risk deliverables",
+      "sections": [
+        { "type": "summary",  "text": "Deliverables and tasks currently at risk of missing their deadline." },
+        { "type": "table",    "source": "collaboration.at_risk", "columns": ["Task", "Owner", "Due date", "Risk reason", "Dependency", "Recommended action"] },
+        { "type": "actions",  "items": ["Review dependencies", "Escalate blockers", "Adjust timeline", "Log risk in governance"] }
+      ]
+    },
+    "data_sources": ["collaboration"],
+    "guardrails": ["no_clinical_advice"]
+  },
+
+  "huddle_briefing": {
+    "tone": "collaborative",
+    "processing_states": ["Structuring prioritised overview…", "Pulling key signals…", "Preparing briefing summary…"],
+    "response_template": {
+      "title": "Briefing summary",
+      "sections": [
+        { "type": "summary",  "text": "Key priorities and operational signals for today's huddle or briefing." },
+        { "type": "table",    "source": "collaboration.briefing", "columns": ["Area", "Status", "Key issue", "Owner", "Action required"] },
+        { "type": "insight",  "text": "Top priority for today: {top_priority}. {escalation_count} items require escalation." },
+        { "type": "actions",  "items": ["Share briefing", "Log decisions", "Assign actions", "Schedule follow-up"] }
+      ]
+    },
+    "data_sources": ["collaboration", "flow_escalation", "capacity"],
+    "guardrails": ["no_clinical_advice"],
+    "follow_up_prompts": ["What are the highest-risk items today?", "Show me yesterday's actions", "Who has outstanding tasks?"]
+  },
+
+  "governance_log": {
+    "tone": "informational",
+    "processing_states": ["Compiling TOM audit trail…", "Loading governance entries…", "Preparing audit-aligned summary…"],
+    "response_template": {
+      "title": "Governance log",
+      "sections": [
+        { "type": "summary",  "text": "Recent governance log entries and audit trail from TOM." },
+        { "type": "table",    "source": "governance.log", "columns": ["Date/Time", "Action", "User", "Module", "Record reference", "Status"] },
+        { "type": "actions",  "items": ["Filter by module", "Export log", "Flag entry for review", "View full audit trail"] }
+      ]
+    },
+    "data_sources": ["governance"],
+    "guardrails": ["no_clinical_advice", "audit_only"]
+  }
+}

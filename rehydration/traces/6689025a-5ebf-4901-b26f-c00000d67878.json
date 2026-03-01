@@ -1,0 +1,54 @@
+{
+  "trace_id": "6689025a-5ebf-4901-b26f-c00000d67878",
+  "created_at": "2026-02-23T01:34:53.900Z",
+  "user_message": "are you great with cars?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.5,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "llm_planner_used:false",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_default_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "No tools or viable views selected, using conversational guidance fallback",
+    "routing_path": "conversational_default"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_default"
+  }
+}

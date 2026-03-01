@@ -1,0 +1,54 @@
+[
+  {
+    "id": "performance_insight",
+    "module": "intelligence",
+    "priority": 82,
+    "intent": "forecast",
+    "domain": "intelligence",
+    "response_key": "performance_insight",
+    "match": {
+      "must_any": ["performance insight", "operational insight", "intelligence report", "generate insight", "show me trends", "trend analysis", "performance trends"],
+      "should_any": ["month", "quarter", "ytd", "specialty", "overview", "pattern"],
+      "must_not": ["stock", "rota"]
+    }
+  },
+  {
+    "id": "anomaly_report",
+    "module": "intelligence",
+    "priority": 85,
+    "intent": "risk_escalation",
+    "domain": "intelligence",
+    "response_key": "anomaly_report",
+    "match": {
+      "must_any": ["anomaly", "anomalies", "unusual pattern", "unexpected change", "outlier", "data anomaly"],
+      "should_any": ["detected", "alert", "flagged", "explain", "review"],
+      "must_not": []
+    }
+  },
+  {
+    "id": "audit_trail",
+    "module": "intelligence",
+    "priority": 80,
+    "intent": "validate",
+    "domain": "governance",
+    "response_key": "audit_trail",
+    "match": {
+      "must_any": ["audit trail", "tom audit", "full audit", "audit history", "who changed", "change history"],
+      "should_any": ["record", "user", "action", "module", "date"],
+      "must_not": []
+    }
+  },
+  {
+    "id": "forecast_demand",
+    "module": "intelligence",
+    "priority": 78,
+    "intent": "forecast",
+    "domain": "intelligence",
+    "response_key": "forecast_demand",
+    "match": {
+      "must_any": ["demand forecast", "forecast demand", "predict demand", "predicted activity", "demand prediction", "projected demand"],
+      "should_any": ["next month", "next quarter", "specialty", "volume", "upcoming"],
+      "must_not": ["stock", "rota"]
+    }
+  }
+]

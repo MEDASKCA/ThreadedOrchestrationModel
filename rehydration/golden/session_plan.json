@@ -1,0 +1,7 @@
+{
+  "prompt": "help me plan my session",
+  "expected": {
+    "routing_path": ["normal"],
+    "must_have_actions": ["open_canvas"]
+  }
+}

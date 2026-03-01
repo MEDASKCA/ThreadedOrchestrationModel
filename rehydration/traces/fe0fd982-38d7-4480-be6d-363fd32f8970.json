@@ -1,0 +1,50 @@
+{
+  "trace_id": "fe0fd982-38d7-4480-be6d-363fd32f8970",
+  "created_at": "2026-02-22T23:15:08.967Z",
+  "user_message": "who is our longest waiter?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.5,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_default_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "No tools or viable views selected, using conversational guidance fallback",
+    "routing_path": "conversational_default"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_default"
+  }
+}

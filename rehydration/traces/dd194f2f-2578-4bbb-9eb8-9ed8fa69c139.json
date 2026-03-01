@@ -1,0 +1,65 @@
+{
+  "trace_id": "dd194f2f-2578-4bbb-9eb8-9ed8fa69c139",
+  "created_at": "2026-02-26T02:12:56.159Z",
+  "user_message": "tell me about Marcus Osei",
+  "intent": "locate",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "domain:general",
+    "explain_mode:concise",
+    "explain_trigger:false",
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:true",
+    "knowledge_trigger:person_lookup",
+    "knowledge_intent:locate",
+    "knowledge_domain:workforce",
+    "knowledge_confidence:0.53",
+    "knowledge_pack:1.0.0",
+    "knowledge_signals:tell me about"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "default",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

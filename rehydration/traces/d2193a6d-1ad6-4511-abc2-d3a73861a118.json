@@ -1,0 +1,67 @@
+{
+  "trace_id": "d2193a6d-1ad6-4511-abc2-d3a73861a118",
+  "created_at": "2026-02-22T23:40:38.348Z",
+  "user_message": "who is our longest waiter?",
+  "intent": "operational_query",
+  "intent_confidence": 0.9,
+  "constraints": [
+    "waiting_list_extremes:true",
+    "pages_first:true",
+    "allowed_fact_count:9"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "view.read",
+        "input": {
+          "view_ids": [
+            "operations.access_pathways_waiting_list"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "waiting_list_extremes_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Waiting list extremes hard routing",
+    "routing_path": "ops_waiting_list_extremes"
+  },
+  "verification": {
+    "required": true,
+    "rules": [
+      "evidence_required"
+    ]
+  },
+  "allowed_facts": {
+    "ids": [
+      "tool:view.read",
+      "evidence:view.read:operations.access_pathways_waiting_list:0",
+      "record:view.read:operations.access_pathways_waiting_list:0",
+      "record:view.read:operations.access_pathways_waiting_list:1",
+      "record:view.read:operations.access_pathways_waiting_list:2",
+      "record:view.read:operations.access_pathways_waiting_list:3",
+      "record:view.read:operations.access_pathways_waiting_list:4",
+      "record:view.read:operations.access_pathways_waiting_list:5",
+      "record:view.read:operations.access_pathways_waiting_list:6"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Identify the longest waiter from waiting list data",
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:8"
+  }
+}

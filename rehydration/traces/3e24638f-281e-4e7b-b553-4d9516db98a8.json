@@ -1,0 +1,46 @@
+{
+  "trace_id": "3e24638f-281e-4e7b-b553-4d9516db98a8",
+  "created_at": "2026-02-23T01:51:25.835Z",
+  "user_message": "why did you say HI?",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "llm_planner_used:false",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational guidance without tools",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

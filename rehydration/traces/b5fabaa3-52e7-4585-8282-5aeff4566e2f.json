@@ -1,0 +1,52 @@
+{
+  "trace_id": "b5fabaa3-52e7-4585-8282-5aeff4566e2f",
+  "created_at": "2026-02-26T01:48:21.068Z",
+  "user_message": "how many patients are urgent?",
+  "intent": "conversational_misc",
+  "intent_confidence": 0.86,
+  "constraints": [
+    "domain:general",
+    "general_answer:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "llm.general_answer"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "conversational_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Conversational miscellaneous prompt",
+    "routing_path": "conversational_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Provide conversational general answer",
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_misc_handled"
+  }
+}

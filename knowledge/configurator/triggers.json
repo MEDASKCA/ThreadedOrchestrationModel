@@ -1,0 +1,28 @@
+[
+  {
+    "id": "permissions_check",
+    "module": "configurator",
+    "priority": 75,
+    "intent": "validate",
+    "domain": "general",
+    "response_key": "permissions_check",
+    "match": {
+      "must_any": ["permissions", "user permissions", "access permissions", "who has access", "role permissions", "check permissions"],
+      "should_any": ["user", "role", "ingress", "module", "access level"],
+      "must_not": ["stock", "rota", "bed", "ptl"]
+    }
+  },
+  {
+    "id": "integration_status",
+    "module": "configurator",
+    "priority": 80,
+    "intent": "validate",
+    "domain": "general",
+    "response_key": "integration_status",
+    "match": {
+      "must_any": ["integration status", "connector status", "system connection", "connected systems", "api status", "integration health"],
+      "should_any": ["live", "connected", "disconnected", "error", "active", "check"],
+      "must_not": ["stock", "rota", "bed"]
+    }
+  }
+]

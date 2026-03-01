@@ -1,0 +1,53 @@
+{
+  "trace_id": "0b05b6fb-f661-43d4-ba75-b7aaaefe1654",
+  "created_at": "2026-02-22T22:51:47.801Z",
+  "user_message": "you are not making any sense at all!!!!",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Unsupported domain — safe refusal",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

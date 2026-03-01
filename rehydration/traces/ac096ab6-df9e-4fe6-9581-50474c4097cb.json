@@ -1,0 +1,43 @@
+{
+  "trace_id": "ac096ab6-df9e-4fe6-9581-50474c4097cb",
+  "created_at": "2026-02-23T01:15:30.214Z",
+  "user_message": "open the canvas",
+  "intent": "ui_command",
+  "intent_confidence": 0.98,
+  "constraints": [
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "ui_command_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "UI command override",
+    "routing_path": "ui_command"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Execute UI orchestration command immediately",
+  "outcome": {
+    "status": "ok",
+    "notes": "ui_command_handled"
+  }
+}

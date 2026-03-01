@@ -1,0 +1,60 @@
+{
+  "trace_id": "ba1307c4-1cb6-4c01-b89c-d07e5346dffd",
+  "created_at": "2026-02-23T01:14:12.008Z",
+  "user_message": "how can you help me with planning sessions?",
+  "intent": "smalltalk",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "format:bullets",
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "No external data access",
+    "allowed_fact_count:1",
+    "reasoning_assist_skip:path_not_allowlisted",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "smalltalk_template"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Smalltalk requires no tools",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {
+        "format": "bullets"
+      }
+    }
+  },
+  "governance": {},
+  "goal": "Handle conversational interaction",
+  "outcome": {
+    "status": "fallback",
+    "notes": "claims_without_evidence,used_fact_ids:0"
+  }
+}

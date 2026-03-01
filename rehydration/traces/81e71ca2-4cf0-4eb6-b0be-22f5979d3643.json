@@ -1,0 +1,41 @@
+{
+  "trace_id": "81e71ca2-4cf0-4eb6-b0be-22f5979d3643",
+  "created_at": "2026-02-22T23:40:11.547Z",
+  "user_message": "you are repeating your answers again that does not make sense",
+  "intent": "meta_feedback",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "meta_feedback_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Meta feedback override",
+    "routing_path": "meta_feedback"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge feedback and adjust routing behavior deterministically",
+  "outcome": {
+    "status": "ok",
+    "notes": "meta_feedback_handled"
+  }
+}

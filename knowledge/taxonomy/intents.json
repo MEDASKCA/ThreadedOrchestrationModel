@@ -1,0 +1,10 @@
+[
+  { "id": "prioritise",       "label": "Prioritise",        "description": "Surface highest-risk or most urgent items first" },
+  { "id": "locate",           "label": "Locate",            "description": "Find or retrieve a specific record, patient, or item" },
+  { "id": "forecast",         "label": "Forecast",          "description": "Look ahead — capacity, demand, or performance outlook" },
+  { "id": "validate",         "label": "Validate",          "description": "Check data quality, compliance, or readiness" },
+  { "id": "explain_variance", "label": "Explain Variance",  "description": "Why is performance different from plan?" },
+  { "id": "risk_escalation",  "label": "Risk & Escalation", "description": "Surface pressure, risk indicators, and escalation needs" },
+  { "id": "co_ordinate",      "label": "Co-ordinate Work",  "description": "Align people, tasks, or handovers across teams" },
+  { "id": "conversational",   "label": "Conversational",    "description": "General query, smalltalk, or meta question" }
+]

@@ -1,0 +1,44 @@
+{
+  "trace_id": "24bc96e1-63fa-4514-9327-7e005f44c2dd",
+  "created_at": "2026-02-25T16:02:13.146Z",
+  "user_message": "can you show me the forum page",
+  "intent": "ui_command",
+  "intent_confidence": 0.98,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "ui_command_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "UI command override",
+    "routing_path": "ui_command"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Execute UI orchestration command immediately",
+  "outcome": {
+    "status": "ok",
+    "notes": "ui_command_handled"
+  }
+}

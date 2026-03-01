@@ -1,0 +1,115 @@
+{
+  "trace_id": "8ff30d28-f06f-4e10-a0bf-2ef3a53cfa30",
+  "created_at": "2026-02-26T01:08:25.669Z",
+  "user_message": "summarise the waiting list for me",
+  "intent": "operational_query",
+  "intent_confidence": 0.6,
+  "constraints": [
+    "format:bullets",
+    "domain:app",
+    "explain_mode:concise",
+    "explain_trigger:false",
+    "authority_primary:epr",
+    "tools_allowed:epr.ptl_summary,alerts.active,anomalies.open,pas.referrals_summary,comms.summary,roster.staffing_summary",
+    "tools_selected:view.read",
+    "tool_risk:view.read:low",
+    "domains_selected:none",
+    "view_finder_used:true",
+    "view_candidates_top:operations.access_pathways_waiting_list,operations.waiting_list_management,operations.waiting",
+    "view_budget:1",
+    "waiting_list_macro:true",
+    "deep_reasoning:true",
+    "think_intent:operational_query",
+    "think_candidates:operations.waiting,operations.waiting_list_management,operations.access_pathways_waiting_list",
+    "allowed_fact_count:9",
+    "table_snapshot:true",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false",
+    "knowledge_matched:true",
+    "knowledge_trigger:ptl_overview",
+    "knowledge_intent:locate",
+    "knowledge_domain:access_pathways",
+    "knowledge_confidence:0.57",
+    "knowledge_pack:1.0.0",
+    "knowledge_signals:waiting list"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "view.read",
+        "input": {
+          "view_ids": [
+            "operations.waiting",
+            "operations.waiting_list_management"
+          ],
+          "rationale": "Pages-first read based on view finder scores."
+        }
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "final_response",
+        "input": {
+          "rationale": "Answer only from verified evidence."
+        }
+      }
+    ]
+  },
+  "route": {
+    "mode": "llm_structured",
+    "reason": "Operational query requires tool-backed structured response",
+    "routing_path": "view_finder"
+  },
+  "verification": {
+    "required": true,
+    "rules": [
+      "no_unverified_numbers",
+      "evidence_required"
+    ]
+  },
+  "allowed_facts": {
+    "ids": [
+      "tool:view.read",
+      "evidence:view.read:operations.access_pathways_waiting_list:0",
+      "record:view.read:operations.access_pathways_waiting_list:0",
+      "record:view.read:operations.access_pathways_waiting_list:1",
+      "record:view.read:operations.access_pathways_waiting_list:2",
+      "record:view.read:operations.access_pathways_waiting_list:3",
+      "record:view.read:operations.access_pathways_waiting_list:4",
+      "record:view.read:operations.access_pathways_waiting_list:5",
+      "record:view.read:operations.access_pathways_waiting_list:6"
+    ]
+  },
+  "conflicts": [
+    {
+      "kind": "unknown_tool",
+      "severity": "low",
+      "details": "one or more selected tools have unknown authority",
+      "tools": [
+        "view.read"
+      ]
+    }
+  ],
+  "teaching": {
+    "preferences": {
+      "extracted": {
+        "format": "bullets"
+      },
+      "applied": {
+        "format": "bullets"
+      }
+    }
+  },
+  "governance": {},
+  "goal": "Retrieve and summarize operational data",
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:8"
+  }
+}

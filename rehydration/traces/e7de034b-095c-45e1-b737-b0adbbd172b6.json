@@ -1,0 +1,45 @@
+{
+  "trace_id": "e7de034b-095c-45e1-b737-b0adbbd172b6",
+  "created_at": "2026-02-23T01:13:46.018Z",
+  "user_message": "what about session planning?",
+  "intent": "section_overview",
+  "intent_confidence": 0.92,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "section_overview_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Hard section overview guard",
+    "routing_path": "section_overview"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Summarise available planning pages from view registry",
+  "outcome": {
+    "status": "ok",
+    "notes": "section_overview_handled"
+  }
+}

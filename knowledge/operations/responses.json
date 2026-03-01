@@ -1,0 +1,293 @@
+{
+  "ptl_long_waiters": {
+    "tone": "focused",
+    "processing_states": ["Identifying longest waiters…", "Checking breach exposure…", "Structuring prioritised overview…"],
+    "response_template": {
+      "title": "Longest waiters — PTL",
+      "sections": [
+        { "type": "summary",  "text": "Here are the longest-waiting patients currently on the PTL, ranked by total pathway duration." },
+        { "type": "table",    "source": "ptl.long_waiters", "columns": ["Patient", "Specialty", "Weeks waiting", "RTT status", "Next milestone", "Priority"] },
+        { "type": "insight",  "text": "Highest exposure is in {top_specialty}. {breach_count} patients are at risk of breaching the 18-week standard." },
+        { "type": "actions",  "items": ["View full PTL", "Filter by specialty", "Flag for escalation", "Export list"] }
+      ]
+    },
+    "data_sources": ["ptl", "rtt_monitoring"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Which specialty has the most breach risk?", "Show me patients over 52 weeks", "What are the next milestones for the top 5?"]
+  },
+
+  "ptl_overview": {
+    "tone": "informational",
+    "processing_states": ["Loading patient tracking list…", "Checking pathway positions…", "Building PTL overview…"],
+    "response_template": {
+      "title": "PTL overview",
+      "sections": [
+        { "type": "summary",  "text": "Current state of the patient tracking list across all active pathways." },
+        { "type": "table",    "source": "ptl.summary", "columns": ["Specialty", "Total on PTL", "Under 18 weeks", "18–52 weeks", "Over 52 weeks", "Clock stops this week"] },
+        { "type": "insight",  "text": "{total_active} patients are currently tracked. {high_risk_count} require attention within 7 days." },
+        { "type": "actions",  "items": ["Drill into specialty", "Show longest waiters", "View breach exposure", "Export PTL"] }
+      ]
+    },
+    "data_sources": ["ptl", "access_pathways_waiting_list"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Who is waiting longest?", "How many are breaching RTT?", "Show me cancellations this week"]
+  },
+
+  "rtt_breach": {
+    "tone": "urgent",
+    "processing_states": ["Checking breach thresholds…", "Scanning RTT clock status…", "Quantifying breach exposure…"],
+    "response_template": {
+      "title": "RTT breach exposure",
+      "sections": [
+        { "type": "warning",  "text": "{breach_count} patients are currently breaching or at risk of breaching the 18-week RTT standard." },
+        { "type": "table",    "source": "rtt_monitoring.breaches", "columns": ["Patient", "Specialty", "Weeks on clock", "Clock start", "Expected breach date", "Status"] },
+        { "type": "insight",  "text": "Primary breach pressure is in {top_specialty}. Clock data quality issues detected in {dq_issues} records." },
+        { "type": "actions",  "items": ["Escalate highest risk", "Validate clock data", "Filter by specialty", "Request capacity"] }
+      ]
+    },
+    "data_sources": ["rtt_monitoring", "breach_tracking", "ptl"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Validate the clock data on these records", "Which pathways have the highest breach risk?", "What capacity is available to reduce the backlog?"]
+  },
+
+  "referral_management": {
+    "tone": "informational",
+    "processing_states": ["Mapping referral progression…", "Checking triage status…", "Loading referral pipeline…"],
+    "response_template": {
+      "title": "Referral pipeline",
+      "sections": [
+        { "type": "summary",  "text": "Current state of inbound referrals and 2WW pathway progression." },
+        { "type": "table",    "source": "referral_management.pipeline", "columns": ["Referral type", "Received", "Triaged", "Pending triage", "2WW count", "Overdue"] },
+        { "type": "insight",  "text": "{overdue_count} referrals are overdue for triage action." },
+        { "type": "actions",  "items": ["View 2WW patients", "Check triage status", "Flag overdue referrals", "Export referral list"] }
+      ]
+    },
+    "data_sources": ["referral_management", "triage_status"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Show me overdue 2WW referrals", "What is the triage backlog?"]
+  },
+
+  "clock_validation": {
+    "tone": "focused",
+    "processing_states": ["Validating clock events…", "Checking data quality…", "Identifying anomalies…"],
+    "response_template": {
+      "title": "Clock event validation",
+      "sections": [
+        { "type": "summary",  "text": "Review of clock start/stop data quality across active pathways." },
+        { "type": "table",    "source": "clock_starts_stops.validation", "columns": ["Patient", "Specialty", "Issue type", "Clock event", "Date", "Action needed"] },
+        { "type": "insight",  "text": "{issues_count} clock events require review. Most common issue: {top_issue}." },
+        { "type": "actions",  "items": ["View all issues", "Filter by issue type", "Mark reviewed", "Escalate to team"] }
+      ]
+    },
+    "data_sources": ["clock_starts_stops", "validation_quality"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "capacity_live": {
+    "tone": "informational",
+    "processing_states": ["Assessing live occupancy levels…", "Scanning beds and theatres…", "Loading capacity snapshot…"],
+    "response_template": {
+      "title": "Live capacity snapshot",
+      "sections": [
+        { "type": "summary",  "text": "Current occupancy and availability across beds, theatres, and clinics." },
+        { "type": "table",    "source": "capacity.live", "columns": ["Area", "Total", "Occupied", "Available", "% Occupied", "Status"] },
+        { "type": "insight",  "text": "Overall bed occupancy is at {occupancy_pct}%. {high_pressure_areas} areas are above the 92% escalation threshold." },
+        { "type": "actions",  "items": ["View 7-day outlook", "Check slot availability", "Identify surge risk", "Open session planner"] }
+      ]
+    },
+    "data_sources": ["capacity"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["What is the 7-day capacity outlook?", "Which areas are under most pressure?", "Show me available clinic slots"]
+  },
+
+  "capacity_forecast": {
+    "tone": "calm",
+    "processing_states": ["Reviewing 7-day outlook…", "Modelling demand against capacity…", "Building forward view…"],
+    "response_template": {
+      "title": "7-day capacity outlook",
+      "sections": [
+        { "type": "summary",  "text": "Forward capacity view for the next 7 days, combining planned demand and current position." },
+        { "type": "table",    "source": "capacity.forecast", "columns": ["Date", "Day", "Planned cases", "Bed demand", "Available beds", "Projected occupancy", "Risk"] },
+        { "type": "insight",  "text": "Highest pressure expected on {peak_day} with projected occupancy of {peak_occupancy}%." },
+        { "type": "actions",  "items": ["Adjust session plan", "Review staffing levels", "Flag surge risk", "View PTL demand"] }
+      ]
+    },
+    "data_sources": ["capacity"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Which day has the highest risk?", "Show me staffing levels for that day"]
+  },
+
+  "slot_availability": {
+    "tone": "informational",
+    "processing_states": ["Checking slot availability…", "Loading clinic schedules…", "Identifying open appointments…"],
+    "response_template": {
+      "title": "Clinic slot availability",
+      "sections": [
+        { "type": "summary",  "text": "Available appointment and clinic slots across active specialties." },
+        { "type": "table",    "source": "capacity.slots", "columns": ["Specialty", "Clinic type", "Date", "Available slots", "Total slots", "Utilisation"] },
+        { "type": "actions",  "items": ["Book slot", "View session planner", "Check demand against slots", "Export availability"] }
+      ]
+    },
+    "data_sources": ["capacity"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "surge_risk": {
+    "tone": "urgent",
+    "processing_states": ["Evaluating surge exposure…", "Scanning pressure indicators…", "Flagging capacity alerts…"],
+    "response_template": {
+      "title": "Surge risk assessment",
+      "sections": [
+        { "type": "warning",  "text": "Capacity surge risk detected. {high_risk_areas} areas are operating above safe thresholds." },
+        { "type": "table",    "source": "capacity.surge", "columns": ["Area", "Current occupancy", "Threshold", "Surplus demand", "OPEL contribution", "Recommended action"] },
+        { "type": "actions",  "items": ["Escalate to OPEL", "Review discharge plan", "Request additional capacity", "Activate contingency"] }
+      ]
+    },
+    "data_sources": ["capacity"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "activity_vs_plan": {
+    "tone": "focused",
+    "processing_states": ["Comparing activity versus plan…", "Reviewing performance variance…", "Calculating gap analysis…"],
+    "response_template": {
+      "title": "Activity vs plan",
+      "sections": [
+        { "type": "summary",  "text": "Current activity performance against contracted plan, with variance analysis by specialty." },
+        { "type": "table",    "source": "activity_performance.vs_plan", "columns": ["Specialty", "Planned", "Actual", "Variance", "% Achievement", "YTD position"] },
+        { "type": "insight",  "text": "Overall achievement is {achievement_pct}% of plan. {below_plan_count} specialties are below target." },
+        { "type": "actions",  "items": ["Drill into specialty", "Review DNA impact", "Check cancellation drivers", "Export performance report"] }
+      ]
+    },
+    "data_sources": ["activity_performance"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Which specialty is furthest below plan?", "What is the DNA impact?", "Show cancellation drivers"]
+  },
+
+  "dna_analysis": {
+    "tone": "focused",
+    "processing_states": ["Analysing DNA impact…", "Calculating slot wastage…", "Identifying patterns…"],
+    "response_template": {
+      "title": "DNA analysis",
+      "sections": [
+        { "type": "summary",  "text": "Did-not-attend rates and impact analysis across clinics and specialties." },
+        { "type": "table",    "source": "activity_performance.dna", "columns": ["Specialty", "Total appointments", "DNAs", "DNA rate %", "Wasted slots", "Trend"] },
+        { "type": "insight",  "text": "Overall DNA rate is {dna_rate}%. Highest rate in {top_specialty}. Equivalent to {wasted_slots} wasted slots this month." },
+        { "type": "actions",  "items": ["Review follow-up process", "Check reminder pathways", "Compare by booking method", "Export DNA report"] }
+      ]
+    },
+    "data_sources": ["activity_performance"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "cancellation_analysis": {
+    "tone": "focused",
+    "processing_states": ["Assessing cancellation drivers…", "Categorising cancellation reasons…", "Reviewing recovery plan…"],
+    "response_template": {
+      "title": "Cancellation analysis",
+      "sections": [
+        { "type": "summary",  "text": "Breakdown of cancelled appointments and sessions, categorised by reason." },
+        { "type": "table",    "source": "activity_performance.cancellations", "columns": ["Period", "Total cancelled", "Patient-initiated", "Hospital-initiated", "Late cancellations", "Rebooked"] },
+        { "type": "insight",  "text": "{hospital_cancel_pct}% of cancellations were hospital-initiated. {late_cancel_count} were same-day cancellations." },
+        { "type": "actions",  "items": ["Review recovery plan", "Prioritise rebooking", "Flag short-notice cancels", "Export cancellation log"] }
+      ]
+    },
+    "data_sources": ["activity_performance"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "utilisation_review": {
+    "tone": "focused",
+    "processing_states": ["Reviewing utilisation variance…", "Calculating session efficiency…", "Mapping underperforming areas…"],
+    "response_template": {
+      "title": "Utilisation review",
+      "sections": [
+        { "type": "summary",  "text": "Session and slot utilisation across theatres, clinics, and diagnostic services." },
+        { "type": "table",    "source": "activity_performance.utilisation", "columns": ["Service", "Session type", "Available time", "Used time", "Utilisation %", "Target %", "Gap"] },
+        { "type": "insight",  "text": "Average utilisation is {avg_utilisation}% against a target of {target_utilisation}%. {low_util_count} sessions are below 75%." },
+        { "type": "actions",  "items": ["Identify underused sessions", "Review scheduling practice", "Check demand levels", "Export utilisation report"] }
+      ]
+    },
+    "data_sources": ["activity_performance"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "flow_bottleneck": {
+    "tone": "urgent",
+    "processing_states": ["Identifying flow bottlenecks…", "Tracing dependency blocks…", "Mapping pressure points…"],
+    "response_template": {
+      "title": "Flow bottlenecks",
+      "sections": [
+        { "type": "warning",  "text": "Active flow bottlenecks detected. {bottleneck_count} areas are blocking patient movement." },
+        { "type": "table",    "source": "flow.bottlenecks", "columns": ["Location", "Issue type", "Patients affected", "Duration", "Downstream impact", "Escalation status"] },
+        { "type": "actions",  "items": ["Escalate blocked areas", "Review discharge targets", "Activate bed management", "Update OPEL status"] }
+      ]
+    },
+    "data_sources": ["flow_escalation"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "delayed_discharge": {
+    "tone": "urgent",
+    "processing_states": ["Scanning delayed discharges…", "Checking DToC reasons…", "Quantifying bed impact…"],
+    "response_template": {
+      "title": "Delayed discharges",
+      "sections": [
+        { "type": "warning",  "text": "{dtoc_count} patients have delayed transfers of care, occupying beds that could be released." },
+        { "type": "table",    "source": "flow.delayed_discharges", "columns": ["Patient", "Ward", "Days delayed", "Reason", "Responsible party", "Expected resolution"] },
+        { "type": "insight",  "text": "Total bed days lost: {bed_days_lost}. Primary reason: {top_reason}." },
+        { "type": "actions",  "items": ["Contact social care", "Escalate responsible party", "Log in governance record", "Update daily sitrep"] }
+      ]
+    },
+    "data_sources": ["flow_escalation"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "opel_status": {
+    "tone": "urgent",
+    "processing_states": ["Scanning pressure indicators…", "Checking OPEL status…", "Loading escalation picture…"],
+    "response_template": {
+      "title": "OPEL status",
+      "sections": [
+        { "type": "summary",  "text": "Current operational pressure and escalation level across the organisation." },
+        { "type": "table",    "source": "flow.opel", "columns": ["Site", "OPEL level", "Key triggers", "Actions required", "Escalation lead", "Last updated"] },
+        { "type": "insight",  "text": "Current OPEL level: {opel_level}. Primary pressure indicator: {primary_trigger}." },
+        { "type": "actions",  "items": ["View pressure indicators", "Update OPEL status", "Activate escalation plan", "Notify on-call director"] }
+      ]
+    },
+    "data_sources": ["flow_escalation"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "pre_op_readiness": {
+    "tone": "focused",
+    "processing_states": ["Reviewing pre-op readiness…", "Checking checklist completion…", "Scanning outstanding items…"],
+    "response_template": {
+      "title": "Pre-op readiness",
+      "sections": [
+        { "type": "summary",  "text": "Pre-operative checklist completion status across today's and tomorrow's theatre lists." },
+        { "type": "table",    "source": "procedures.pre_op", "columns": ["Patient", "Procedure", "Theatre", "Surgeon", "Checklist status", "Outstanding items"] },
+        { "type": "insight",  "text": "{incomplete_count} patients have incomplete pre-op checklists. Theatre start time may be at risk." },
+        { "type": "actions",  "items": ["Flag incomplete cases", "Contact clinical teams", "Reorder theatre list", "Update checklist"] }
+      ]
+    },
+    "data_sources": ["procedures"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "procedure_backlog": {
+    "tone": "focused",
+    "processing_states": ["Mapping backlog by procedure…", "Scanning procedure volumes…", "Identifying priority cases…"],
+    "response_template": {
+      "title": "Procedure backlog",
+      "sections": [
+        { "type": "summary",  "text": "Current backlog of cases awaiting procedure, broken down by specialty and procedure type." },
+        { "type": "table",    "source": "procedures.backlog", "columns": ["Specialty", "Procedure", "OPCS code", "Cases waiting", "Avg weeks waiting", "Priority"] },
+        { "type": "insight",  "text": "Largest backlog concentration: {top_procedure} in {top_specialty}." },
+        { "type": "actions",  "items": ["Plan additional sessions", "Review priority allocation", "Export backlog list", "View PTL"] }
+      ]
+    },
+    "data_sources": ["procedures", "ptl"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  }
+}

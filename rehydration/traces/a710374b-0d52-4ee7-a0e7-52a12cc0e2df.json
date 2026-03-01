@@ -1,0 +1,50 @@
+{
+  "trace_id": "a710374b-0d52-4ee7-a0e7-52a12cc0e2df",
+  "created_at": "2026-02-22T23:10:38.396Z",
+  "user_message": "can you open the canvas to the right?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.5,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_default_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "No tools or viable views selected, using conversational guidance fallback",
+    "routing_path": "conversational_default"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_default"
+  }
+}

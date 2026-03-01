@@ -1,0 +1,43 @@
+{
+  "trace_id": "81122b7f-6e0d-410b-9987-83eea583b512",
+  "created_at": "2026-02-25T22:07:33.008Z",
+  "user_message": "bed status",
+  "intent": "approval_help",
+  "intent_confidence": 0.7,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "approval_pending_reminder"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Pending approval in progress",
+    "routing_path": "approval_help"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "approval_pending_reminder"
+  }
+}

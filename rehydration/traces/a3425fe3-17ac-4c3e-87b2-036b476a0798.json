@@ -1,0 +1,44 @@
+{
+  "trace_id": "a3425fe3-17ac-4c3e-87b2-036b476a0798",
+  "created_at": "2026-02-25T11:51:53.053Z",
+  "user_message": "hey TOM. how are you?",
+  "intent": "greeting",
+  "intent_confidence": 0.96,
+  "constraints": [
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "greeting_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Greeting micro-intent",
+    "routing_path": "greeting"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge greeting and continue conversation",
+  "outcome": {
+    "status": "ok",
+    "notes": "greeting_handled"
+  }
+}

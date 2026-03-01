@@ -1,0 +1,55 @@
+{
+  "trace_id": "4013a8d0-220f-4198-8521-b918dbdef788",
+  "created_at": "2026-02-22T23:23:49.248Z",
+  "user_message": "how are you?",
+  "intent": "smalltalk",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "No external data access",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "smalltalk_template"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Smalltalk requires no tools",
+    "routing_path": "normal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "goal": "Handle conversational interaction",
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:0"
+  }
+}

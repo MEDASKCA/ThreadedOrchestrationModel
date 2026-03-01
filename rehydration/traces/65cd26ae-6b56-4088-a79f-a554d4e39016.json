@@ -1,0 +1,50 @@
+{
+  "trace_id": "65cd26ae-6b56-4088-a79f-a554d4e39016",
+  "created_at": "2026-02-25T00:14:21.967Z",
+  "user_message": "explain the table to me",
+  "intent": "operational_query",
+  "intent_confidence": 0.88,
+  "constraints": [
+    "explain_mode:expanded",
+    "explain_trigger:true",
+    "lifecycle_stage:operational_tracking",
+    "lifecycle_context_applied:true",
+    "cross_page_checked:false",
+    "llm_planner_used:false",
+    "reasoning_assist_used:false"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "expanded_explanation_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Expand on demand from last answer context",
+    "routing_path": "expanded_explanation"
+  },
+  "verification": {
+    "required": true,
+    "rules": [
+      "evidence_required"
+    ]
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "expanded_from_last_context,used_fact_ids:16"
+  }
+}

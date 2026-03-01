@@ -1,0 +1,41 @@
+{
+  "trace_id": "a65e8bc8-83d9-4abd-bd90-c1a60316602f",
+  "created_at": "2026-02-22T23:11:06.637Z",
+  "user_message": "do you know?",
+  "intent": "emotion_or_short_utterance",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "emotion_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Short or emotional utterance",
+    "routing_path": "emotion_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge tone and move user toward a productive next step",
+  "outcome": {
+    "status": "ok",
+    "notes": "emotion_misc_handled"
+  }
+}

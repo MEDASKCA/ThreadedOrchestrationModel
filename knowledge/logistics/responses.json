@@ -1,0 +1,126 @@
+{
+  "workforce_coverage": {
+    "tone": "focused",
+    "processing_states": ["Reviewing coverage gaps…", "Checking rota status…", "Scanning shift allocation…"],
+    "response_template": {
+      "title": "Staffing coverage",
+      "sections": [
+        { "type": "summary",  "text": "Current staffing coverage and gap analysis across active shifts and wards." },
+        { "type": "table",    "source": "roster.coverage", "columns": ["Ward / Area", "Shift", "Required", "Filled", "Gaps", "Status"] },
+        { "type": "insight",  "text": "{gap_count} coverage gaps identified. {critical_gap_count} are in high-dependency areas." },
+        { "type": "actions",  "items": ["Fill gaps from bank", "Redeploy staff", "Escalate to manager", "Update rota"] }
+      ]
+    },
+    "data_sources": ["roster"],
+    "guardrails": ["no_clinical_advice", "ops_only"],
+    "follow_up_prompts": ["Who is available to cover?", "Show me tomorrow's rota", "What are the absence reasons?"]
+  },
+
+  "absence_review": {
+    "tone": "focused",
+    "processing_states": ["Assessing absence impact…", "Checking coverage risk…", "Loading sickness data…"],
+    "response_template": {
+      "title": "Absence & sickness",
+      "sections": [
+        { "type": "summary",  "text": "Current absence levels and their impact on service coverage." },
+        { "type": "table",    "source": "roster.absence", "columns": ["Staff member", "Role", "Ward / Area", "Reason", "From", "Expected return", "Cover arranged"] },
+        { "type": "insight",  "text": "Current absence rate: {absence_rate}%. {uncovered_shifts} shifts are currently uncovered." },
+        { "type": "actions",  "items": ["Arrange bank cover", "Review absence trends", "Escalate long-term absence", "Update rota"] }
+      ]
+    },
+    "data_sources": ["roster"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "staff_allocation": {
+    "tone": "calm",
+    "processing_states": ["Optimising staff allocation…", "Reviewing deployment options…", "Checking competency match…"],
+    "response_template": {
+      "title": "Staff allocation",
+      "sections": [
+        { "type": "summary",  "text": "Current staff deployment and reallocation options." },
+        { "type": "table",    "source": "roster.allocation", "columns": ["Staff member", "Current area", "Role", "Shift", "Available for redeployment", "Target area"] },
+        { "type": "actions",  "items": ["Confirm redeployment", "Check competency", "Update rota", "Notify staff member"] }
+      ]
+    },
+    "data_sources": ["roster"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "rota_tomorrow": {
+    "tone": "informational",
+    "processing_states": ["Loading tomorrow's rota…", "Checking shift assignments…", "Confirming coverage…"],
+    "response_template": {
+      "title": "Tomorrow's rota",
+      "sections": [
+        { "type": "summary",  "text": "Staffing plan for tomorrow across all active areas and shifts." },
+        { "type": "table",    "source": "roster.tomorrow", "columns": ["Ward / Area", "Shift", "Staff member", "Role", "Start", "End", "Status"] },
+        { "type": "insight",  "text": "{gap_count} gaps currently unresolved for tomorrow. Confirm cover before end of today." },
+        { "type": "actions",  "items": ["Fill gaps", "Confirm allocations", "Print rota", "Notify team"] }
+      ]
+    },
+    "data_sources": ["roster"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "stock_safety": {
+    "tone": "urgent",
+    "processing_states": ["Checking stock safety thresholds…", "Scanning critical items…", "Reviewing reorder points…"],
+    "response_template": {
+      "title": "Stock safety thresholds",
+      "sections": [
+        { "type": "warning",  "text": "{critical_items} items are at or below safety stock threshold." },
+        { "type": "table",    "source": "inventory.stock", "columns": ["Item", "Category", "Current stock", "Safety threshold", "Days remaining", "Reorder status"] },
+        { "type": "insight",  "text": "Highest risk: {top_item}. Estimated stockout in {days_to_stockout} days without reorder." },
+        { "type": "actions",  "items": ["Raise urgent order", "Contact supplier", "Check alternatives", "Escalate to pharmacy"] }
+      ]
+    },
+    "data_sources": ["inventory"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "batch_expiry": {
+    "tone": "focused",
+    "processing_states": ["Validating batch and expiry…", "Checking use-by dates…", "Scanning expiry risk…"],
+    "response_template": {
+      "title": "Batch & expiry review",
+      "sections": [
+        { "type": "summary",  "text": "Items expiring or recently expired, requiring immediate review." },
+        { "type": "table",    "source": "inventory.expiry", "columns": ["Item", "Batch number", "Expiry date", "Quantity", "Location", "Action required"] },
+        { "type": "actions",  "items": ["Quarantine expired items", "Raise wastage record", "Contact supplier", "Update inventory log"] }
+      ]
+    },
+    "data_sources": ["inventory"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "procurement_pipeline": {
+    "tone": "informational",
+    "processing_states": ["Reviewing procurement pipeline…", "Checking order status…", "Tracking delivery timeline…"],
+    "response_template": {
+      "title": "Procurement pipeline",
+      "sections": [
+        { "type": "summary",  "text": "Status of open purchase orders and expected delivery timeline." },
+        { "type": "table",    "source": "inventory.procurement", "columns": ["Order reference", "Item", "Supplier", "Quantity", "Order date", "Expected delivery", "Status"] },
+        { "type": "actions",  "items": ["Chase urgent orders", "Contact supplier", "Raise new order", "Export order list"] }
+      ]
+    },
+    "data_sources": ["inventory"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  },
+
+  "asset_tracking": {
+    "tone": "informational",
+    "processing_states": ["Tracking asset movement…", "Scanning last known location…", "Checking asset register…"],
+    "response_template": {
+      "title": "Asset tracking",
+      "sections": [
+        { "type": "summary",  "text": "Current location and status of tracked assets and equipment." },
+        { "type": "table",    "source": "inventory.assets", "columns": ["Asset", "Asset ID", "Category", "Last location", "Last seen", "Status"] },
+        { "type": "actions",  "items": ["Log location update", "Raise missing asset report", "Contact department", "Export asset list"] }
+      ]
+    },
+    "data_sources": ["inventory"],
+    "guardrails": ["no_clinical_advice", "ops_only"]
+  }
+}

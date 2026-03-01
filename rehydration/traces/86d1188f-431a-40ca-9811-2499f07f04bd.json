@@ -1,0 +1,46 @@
+{
+  "trace_id": "86d1188f-431a-40ca-9811-2499f07f04bd",
+  "created_at": "2026-02-23T01:22:49.856Z",
+  "user_message": "why do you keep saying the same thing?",
+  "intent": "emotion_or_short_utterance",
+  "intent_confidence": 0.85,
+  "constraints": [
+    "reasoning_assist:true",
+    "reasoning_assist_model:gpt-4o-mini",
+    "llm_planner_used:false",
+    "reasoning_assist_used:true"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "emotion_misc_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Emotion lock from prior turn",
+    "routing_path": "emotion_misc"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Maintain calm reset flow",
+  "outcome": {
+    "status": "ok",
+    "notes": "emotion_misc_lock"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "trace_id": "dc73bbe2-e7b4-44c9-91ff-51a683d64975",
+  "created_at": "2026-02-22T21:26:09.736Z",
+  "user_message": "nagtatagalog ka ba?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.3,
+  "constraints": [
+    "format:bullets",
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none",
+    "allowed_fact_count:1"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "unsupported_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Unsupported domain — safe refusal"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": [
+      "evidence:TOM:0"
+    ]
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {
+        "format": "bullets"
+      }
+    }
+  },
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:1"
+  }
+}

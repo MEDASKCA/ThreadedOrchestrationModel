@@ -1,0 +1,41 @@
+{
+  "trace_id": "ac94a51f-d126-45c3-a485-47d656ad3083",
+  "created_at": "2026-02-22T22:25:49.130Z",
+  "user_message": "do you know about my pages?",
+  "intent": "meta_feedback",
+  "intent_confidence": 0.9,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "meta_feedback_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Meta feedback override",
+    "routing_path": "meta_feedback"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {},
+  "goal": "Acknowledge feedback and adjust routing behavior deterministically",
+  "outcome": {
+    "status": "ok",
+    "notes": "meta_feedback_handled"
+  }
+}

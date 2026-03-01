@@ -1,0 +1,44 @@
+{
+  "trace_id": "a27b29f1-45e7-4ef0-8790-39f715175751",
+  "created_at": "2026-02-22T22:51:14.301Z",
+  "user_message": "any update>",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.75,
+  "constraints": [],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": []
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "Approval required for state-changing action",
+    "routing_path": "approval_gate"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {},
+  "governance": {
+    "approval": {
+      "requested": true,
+      "risk": "high",
+      "reason": "state_changing_action",
+      "action_type": "write_request",
+      "approved": false,
+      "executed": false,
+      "outcome": "approval_requested"
+    }
+  },
+  "outcome": {
+    "status": "ok",
+    "notes": "approval_requested"
+  }
+}

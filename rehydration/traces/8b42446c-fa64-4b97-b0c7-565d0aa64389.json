@@ -1,0 +1,96 @@
+{
+  "trace_id": "8b42446c-fa64-4b97-b0c7-565d0aa64389",
+  "created_at": "2026-02-22T22:36:23.766Z",
+  "user_message": "Waiting list?",
+  "intent": "operational_query",
+  "intent_confidence": 0.6,
+  "constraints": [
+    "format:bullets",
+    "authority_primary:epr",
+    "tools_allowed:epr.ptl_summary,alerts.active,anomalies.open,pas.referrals_summary,comms.summary,roster.staffing_summary",
+    "tools_selected:view.read",
+    "tool_risk:view.read:low",
+    "domains_selected:none",
+    "view_finder_used:true",
+    "view_candidates_top:operations.ptl,operations.waiting,operations.rtt",
+    "view_budget:2",
+    "allowed_fact_count:17"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "tool",
+        "name": "view.read"
+      },
+      {
+        "id": "2",
+        "kind": "respond",
+        "name": "final_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "llm_structured",
+    "reason": "Operational query requires tool-backed structured response",
+    "routing_path": "view_finder"
+  },
+  "verification": {
+    "required": true,
+    "rules": [
+      "no_unverified_numbers",
+      "evidence_required"
+    ]
+  },
+  "allowed_facts": {
+    "ids": [
+      "tool:view.read",
+      "evidence:view.read:operations.ptl:0",
+      "record:view.read:operations.ptl:0",
+      "record:view.read:operations.ptl:1",
+      "record:view.read:operations.ptl:2",
+      "record:view.read:operations.ptl:3",
+      "record:view.read:operations.ptl:4",
+      "record:view.read:operations.ptl:5",
+      "record:view.read:operations.ptl:6",
+      "evidence:view.read:operations.access_pathways_waiting_list:1",
+      "record:view.read:operations.access_pathways_waiting_list:0",
+      "record:view.read:operations.access_pathways_waiting_list:1",
+      "record:view.read:operations.access_pathways_waiting_list:2",
+      "record:view.read:operations.access_pathways_waiting_list:3",
+      "record:view.read:operations.access_pathways_waiting_list:4",
+      "record:view.read:operations.access_pathways_waiting_list:5",
+      "record:view.read:operations.access_pathways_waiting_list:6"
+    ]
+  },
+  "conflicts": [
+    {
+      "kind": "unknown_tool",
+      "severity": "low",
+      "details": "one or more selected tools have unknown authority",
+      "tools": [
+        "view.read"
+      ]
+    }
+  ],
+  "teaching": {
+    "preferences": {
+      "extracted": {
+        "format": "bullets"
+      },
+      "applied": {
+        "format": "bullets"
+      }
+    }
+  },
+  "governance": {},
+  "goal": "Retrieve and summarize operational data",
+  "outcome": {
+    "status": "ok",
+    "notes": "used_fact_ids:16"
+  }
+}

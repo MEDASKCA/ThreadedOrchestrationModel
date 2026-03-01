@@ -1,0 +1,50 @@
+{
+  "trace_id": "fb64101f-5d01-489d-860e-5b2759412e5f",
+  "created_at": "2026-02-22T23:24:01.522Z",
+  "user_message": "can you help with visuals?",
+  "intent": "unsupported_domain",
+  "intent_confidence": 0.5,
+  "constraints": [
+    "authority_primary:unknown",
+    "tools_allowed:none",
+    "tools_selected:none",
+    "domains_selected:none"
+  ],
+  "ambiguity": {
+    "score": 0,
+    "reasons": []
+  },
+  "plan": {
+    "steps": [
+      {
+        "id": "1",
+        "kind": "respond",
+        "name": "conversational_default_response"
+      }
+    ]
+  },
+  "route": {
+    "mode": "deterministic",
+    "reason": "No tools or viable views selected, using conversational guidance fallback",
+    "routing_path": "conversational_default"
+  },
+  "verification": {
+    "required": false,
+    "rules": []
+  },
+  "allowed_facts": {
+    "ids": []
+  },
+  "conflicts": [],
+  "teaching": {
+    "preferences": {
+      "extracted": {},
+      "applied": {}
+    }
+  },
+  "governance": {},
+  "outcome": {
+    "status": "ok",
+    "notes": "conversational_default"
+  }
+}

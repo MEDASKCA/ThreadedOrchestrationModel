@@ -1,0 +1,236 @@
+[
+  {
+    "id": "ptl_long_waiters",
+    "module": "operations",
+    "priority": 100,
+    "intent": "prioritise",
+    "domain": "access_pathways",
+    "response_key": "ptl_long_waiters",
+    "match": {
+      "must_any": ["longest waiter", "long waiters", "waiting longest", "overdue waiting", "longest wait", "waited longest", "longest-waiting"],
+      "should_any": ["ptl", "waiting list", "rtt", "breach", "pathway", "clock", "priority"],
+      "must_not": ["stock", "roster", "equipment", "bed capacity", "theatre capacity"]
+    }
+  },
+  {
+    "id": "ptl_overview",
+    "module": "operations",
+    "priority": 90,
+    "intent": "locate",
+    "domain": "access_pathways",
+    "response_key": "ptl_overview",
+    "match": {
+      "must_any": ["ptl", "waiting list", "patient tracking list"],
+      "should_any": ["show", "review", "overview", "summary", "current", "today", "open"],
+      "must_not": ["stock", "equipment", "rota", "bed capacity"]
+    }
+  },
+  {
+    "id": "rtt_breach",
+    "module": "operations",
+    "priority": 95,
+    "intent": "risk_escalation",
+    "domain": "access_pathways",
+    "response_key": "rtt_breach",
+    "match": {
+      "must_any": ["breach", "breaching", "breach track", "over 18 weeks", "18 week", "52 week", "over 52", "breach exposure"],
+      "should_any": ["rtt", "pathway", "ptl", "risk", "patient", "clock"],
+      "must_not": ["stock", "equipment", "rota"]
+    }
+  },
+  {
+    "id": "referral_management",
+    "module": "operations",
+    "priority": 80,
+    "intent": "locate",
+    "domain": "access_pathways",
+    "response_key": "referral_management",
+    "match": {
+      "must_any": ["referral", "referred", "2ww", "two week wait", "cancer pathway", "triage referral"],
+      "should_any": ["progression", "status", "pending", "triaged", "waiting", "pipeline"],
+      "must_not": ["staff", "rota", "equipment", "bed"]
+    }
+  },
+  {
+    "id": "clock_validation",
+    "module": "operations",
+    "priority": 75,
+    "intent": "validate",
+    "domain": "access_pathways",
+    "response_key": "clock_validation",
+    "match": {
+      "must_any": ["clock start", "clock stop", "clock event", "validate clock", "clock validation", "data quality pathway"],
+      "should_any": ["rtt", "pathway", "ptl", "error", "missing", "issue"],
+      "must_not": ["stock", "equipment", "rota"]
+    }
+  },
+  {
+    "id": "capacity_live",
+    "module": "operations",
+    "priority": 90,
+    "intent": "locate",
+    "domain": "capacity",
+    "response_key": "capacity_live",
+    "match": {
+      "must_any": ["bed capacity", "beds available", "occupied beds", "bed occupancy", "theatre capacity", "clinic capacity", "live capacity", "current capacity"],
+      "should_any": ["today", "current", "now", "available", "free", "occupied", "live"],
+      "must_not": ["staff", "rota", "stock", "equipment", "7-day", "forecast"]
+    }
+  },
+  {
+    "id": "capacity_forecast",
+    "module": "operations",
+    "priority": 85,
+    "intent": "forecast",
+    "domain": "capacity",
+    "response_key": "capacity_forecast",
+    "match": {
+      "must_any": ["7-day capacity", "7 day capacity", "7-day outlook", "forward capacity", "capacity outlook", "capacity next week", "capacity forecast"],
+      "should_any": ["forecast", "predict", "plan", "ahead", "upcoming", "next week"],
+      "must_not": ["staff", "rota", "stock"]
+    }
+  },
+  {
+    "id": "slot_availability",
+    "module": "operations",
+    "priority": 78,
+    "intent": "locate",
+    "domain": "capacity",
+    "response_key": "slot_availability",
+    "match": {
+      "must_any": ["clinic slot", "available slot", "free slot", "booking slot", "appointment slot", "slot availability", "open slots"],
+      "should_any": ["available", "free", "book", "schedule", "open", "appointment"],
+      "must_not": ["staff", "rota", "stock", "bed"]
+    }
+  },
+  {
+    "id": "surge_risk",
+    "module": "operations",
+    "priority": 88,
+    "intent": "risk_escalation",
+    "domain": "capacity",
+    "response_key": "surge_risk",
+    "match": {
+      "must_any": ["surge", "surge risk", "over capacity", "high occupancy", "capacity risk", "capacity pressure"],
+      "should_any": ["risk", "opel", "escalat", "pressure", "breach", "threshold"],
+      "must_not": ["staff pressure", "stock", "equipment"]
+    }
+  },
+  {
+    "id": "activity_vs_plan",
+    "module": "operations",
+    "priority": 85,
+    "intent": "explain_variance",
+    "domain": "activity_performance",
+    "response_key": "activity_vs_plan",
+    "match": {
+      "must_any": ["activity vs plan", "activity versus plan", "against plan", "plan vs actual", "performance vs plan", "behind plan", "ahead of plan", "activity variance"],
+      "should_any": ["activity", "performance", "target", "ytd", "month", "week", "gap"],
+      "must_not": ["stock", "rota", "equipment", "bed"]
+    }
+  },
+  {
+    "id": "dna_analysis",
+    "module": "operations",
+    "priority": 82,
+    "intent": "explain_variance",
+    "domain": "activity_performance",
+    "response_key": "dna_analysis",
+    "match": {
+      "must_any": ["dna", "did not attend", "non-attendance", "no show", "did not attend rate"],
+      "should_any": ["rate", "impact", "cost", "specialty", "slot", "wasted", "trend"],
+      "must_not": ["stock", "equipment", "rota"]
+    }
+  },
+  {
+    "id": "cancellation_analysis",
+    "module": "operations",
+    "priority": 80,
+    "intent": "explain_variance",
+    "domain": "activity_performance",
+    "response_key": "cancellation_analysis",
+    "match": {
+      "must_any": ["cancellation", "cancelled", "late cancel", "same day cancel", "patient cancel", "hospital cancel", "cancellation rate"],
+      "should_any": ["reason", "rate", "impact", "trend", "theatre", "clinic", "recovery"],
+      "must_not": ["stock", "equipment", "rota"]
+    }
+  },
+  {
+    "id": "utilisation_review",
+    "module": "operations",
+    "priority": 78,
+    "intent": "explain_variance",
+    "domain": "activity_performance",
+    "response_key": "utilisation_review",
+    "match": {
+      "must_any": ["utilisation", "utilization", "session utilisation", "theatre utilisation", "clinic utilisation", "utilisation rate"],
+      "should_any": ["rate", "poor", "variance", "below target", "efficiency", "underused"],
+      "must_not": ["stock", "rota", "equipment"]
+    }
+  },
+  {
+    "id": "flow_bottleneck",
+    "module": "operations",
+    "priority": 90,
+    "intent": "risk_escalation",
+    "domain": "flow_escalation",
+    "response_key": "flow_bottleneck",
+    "match": {
+      "must_any": ["bottleneck", "blocked bed", "blocked beds", "flow bottleneck", "flow issue", "congestion", "flow block"],
+      "should_any": ["ward", "discharge", "transfer", "opel", "pressure", "patient movement"],
+      "must_not": ["stock", "rota", "equipment"]
+    }
+  },
+  {
+    "id": "delayed_discharge",
+    "module": "operations",
+    "priority": 88,
+    "intent": "risk_escalation",
+    "domain": "flow_escalation",
+    "response_key": "delayed_discharge",
+    "match": {
+      "must_any": ["delayed discharge", "delay discharge", "discharge delay", "stranded patient", "dtoc", "transfer of care delay"],
+      "should_any": ["reason", "social care", "awaiting", "transfer", "bed days", "resolution"],
+      "must_not": ["stock", "equipment", "rota"]
+    }
+  },
+  {
+    "id": "opel_status",
+    "module": "operations",
+    "priority": 95,
+    "intent": "risk_escalation",
+    "domain": "flow_escalation",
+    "response_key": "opel_status",
+    "match": {
+      "must_any": ["opel", "escalation level", "operational pressure", "pressure indicator", "opel 1", "opel 2", "opel 3", "opel 4"],
+      "should_any": ["status", "level", "current", "today", "trigger", "pressure"],
+      "must_not": []
+    }
+  },
+  {
+    "id": "pre_op_readiness",
+    "module": "operations",
+    "priority": 82,
+    "intent": "validate",
+    "domain": "procedures",
+    "response_key": "pre_op_readiness",
+    "match": {
+      "must_any": ["pre-op", "pre op", "pre-operative", "preoperative", "checklist readiness", "theatre readiness", "procedure checklist"],
+      "should_any": ["ready", "complete", "outstanding", "today", "tomorrow", "theatre list"],
+      "must_not": ["stock", "rota"]
+    }
+  },
+  {
+    "id": "procedure_backlog",
+    "module": "operations",
+    "priority": 78,
+    "intent": "prioritise",
+    "domain": "procedures",
+    "response_key": "procedure_backlog",
+    "match": {
+      "must_any": ["procedure backlog", "backlog by procedure", "surgical backlog", "procedure waiting", "cases waiting"],
+      "should_any": ["specialty", "opcs", "priority", "weeks", "volume"],
+      "must_not": ["stock", "rota", "equipment"]
+    }
+  }
+]

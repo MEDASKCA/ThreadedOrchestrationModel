@@ -1,0 +1,65 @@
+{
+  "performance_insight": {
+    "tone": "informational",
+    "processing_states": ["Generating governance-aligned insight…", "Structuring prioritised overview…", "Validating key data fields…"],
+    "response_template": {
+      "title": "Performance insight",
+      "sections": [
+        { "type": "summary",  "text": "Key operational performance signals across the organisation." },
+        { "type": "table",    "source": "intelligence.performance", "columns": ["Domain", "Metric", "Current", "Target", "Trend", "RAG"] },
+        { "type": "insight",  "text": "{positive_count} metrics are on track. {at_risk_count} require attention." },
+        { "type": "actions",  "items": ["Export report", "Drill into domain", "Share with board", "Set alert threshold"] }
+      ]
+    },
+    "data_sources": ["intelligence", "activity_performance", "capacity"],
+    "guardrails": ["no_clinical_advice"],
+    "follow_up_prompts": ["Which domain is underperforming?", "Show me the trend over 3 months", "Generate a board report summary"]
+  },
+
+  "anomaly_report": {
+    "tone": "focused",
+    "processing_states": ["Scanning for anomalies…", "Reviewing pattern deviations…", "Generating anomaly summary…"],
+    "response_template": {
+      "title": "Anomaly report",
+      "sections": [
+        { "type": "summary",  "text": "Unusual patterns and statistical anomalies detected across operational data." },
+        { "type": "table",    "source": "intelligence.anomalies", "columns": ["Detected", "Metric", "Domain", "Severity", "Explanation", "Status"] },
+        { "type": "insight",  "text": "{anomaly_count} anomalies detected. {high_severity_count} are high severity." },
+        { "type": "actions",  "items": ["Investigate top anomaly", "Dismiss false positive", "Log for review", "Escalate to director"] }
+      ]
+    },
+    "data_sources": ["intelligence"],
+    "guardrails": ["no_clinical_advice"]
+  },
+
+  "audit_trail": {
+    "tone": "informational",
+    "processing_states": ["Compiling TOM audit trail…", "Preparing audit-aligned summary…", "Validating key data fields…"],
+    "response_template": {
+      "title": "Audit trail",
+      "sections": [
+        { "type": "summary",  "text": "Complete audit trail of actions taken within TOM, filtered by your query." },
+        { "type": "table",    "source": "governance.audit", "columns": ["Timestamp", "User", "Action", "Module", "Record", "Outcome"] },
+        { "type": "actions",  "items": ["Filter by user", "Filter by module", "Export for compliance", "Flag entry"] }
+      ]
+    },
+    "data_sources": ["governance"],
+    "guardrails": ["no_clinical_advice", "audit_only"]
+  },
+
+  "forecast_demand": {
+    "tone": "calm",
+    "processing_states": ["Generating governance-aligned insight…", "Modelling future demand…", "Structuring forecast view…"],
+    "response_template": {
+      "title": "Demand forecast",
+      "sections": [
+        { "type": "summary",  "text": "Projected patient demand and activity volumes for the upcoming period." },
+        { "type": "table",    "source": "intelligence.forecast", "columns": ["Period", "Specialty", "Projected activity", "Baseline", "Variance", "Confidence"] },
+        { "type": "insight",  "text": "Demand is projected to {demand_direction} by {demand_pct}% vs baseline in {peak_period}." },
+        { "type": "actions",  "items": ["Plan capacity against forecast", "Review session plan", "Export forecast", "Share with planning team"] }
+      ]
+    },
+    "data_sources": ["intelligence"],
+    "guardrails": ["no_clinical_advice"]
+  }
+}
